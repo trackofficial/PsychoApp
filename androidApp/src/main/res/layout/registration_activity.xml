@@ -35,6 +35,7 @@
         android:background="@drawable/round_block"/>
     <EditText
         android:textSize="15dp"
+        android:inputType="textPassword"
         android:fontFamily="@font/geistmonomedium"
         android:textCursorDrawable="@color/black"
         android:hint="@string/password"
@@ -50,6 +51,7 @@
         android:background="@drawable/round_block"/>
     <EditText
         android:textSize="15dp"
+        android:inputType="textPassword"
         android:fontFamily="@font/geistmonomedium"
         android:textCursorDrawable="@color/black"
         android:hint="@string/accept_password"
@@ -76,6 +78,7 @@
         android:layout_height="60dp"
         android:background="@drawable/black_round_button"
         android:text="@string/reg"
+        android:id="@+id/reg_btn"
         android:textColor="@color/background_color"
         android:fontFamily="@font/geistmonomedium"/>
 </FrameLayout>

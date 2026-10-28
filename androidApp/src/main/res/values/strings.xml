@@ -4,4 +4,5 @@
     <string name="password">password</string>
     <string name="accept_password">prove your password</string>
     <string name="reg">reg</string>
+    <string name="register">register</string>
 </resources>
