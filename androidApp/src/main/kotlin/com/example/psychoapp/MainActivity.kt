@@ -9,17 +9,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-
-        setContent {
-            App()
-        }
+        setContentView(R.layout.login_activity)
     }
-}
-
-@Preview
-@Composable
-fun AppAndroidPreview() {
-    App()
 }

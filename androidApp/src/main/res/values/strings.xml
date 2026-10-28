@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">PsychoApp</string>
+    <string name="app_name">Psycho</string>
+    <string name="login">login</string>
+    <string name="password">password</string>
+    <string name="accept_password">prove your password</string>
+    <string name="reg">reg</string>
 </resources>
