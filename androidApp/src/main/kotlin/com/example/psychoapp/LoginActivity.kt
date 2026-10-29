@@ -13,7 +13,7 @@ class LoginActivity : ComponentActivity() {
 
         setContentView(R.layout.login_activity)
 
-        val btnGoToReg: Button = findViewById(R.id.btn_go_to_reg)
+        val btnGoToReg = findViewById<Button>(R.id.btn_go_to_reg)
         btnGoToReg.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)

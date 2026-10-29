@@ -12,10 +12,10 @@ class RegistrationActivity : ComponentActivity() {
 
         setContentView(R.layout.registration_activity)
 
-        val userLogin: EditText = findViewById(R.id.login_space)
-        val userPassword: EditText = findViewById(R.id.password_space)
-        val acceptUserPassword: EditText = findViewById(R.id.accept_password_space)
-        val regBtn: Button = findViewById(R.id.reg_btn)
+        val userLogin = findViewById<EditText>(R.id.login_space)
+        val userPassword = findViewById<EditText>(R.id.password_space)
+        val acceptUserPassword = findViewById<EditText>(R.id.accept_password_space)
+        val regBtn = findViewById<Button>(R.id.reg_btn)
 
         regBtn.setOnClickListener {
             val login = userLogin.text.toString().trim()
