@@ -6,5 +6,6 @@
     <string name="accept_password">подтвердите пароль</string>
     <string name="reg">Зарегистрироваться</string>
     <string name="register">Зарегистрироваться</string>
-
+    <string name="signed_in">Зарегестрироваться</string>
+    <string name="login_for_button">Войти</string>
 </resources>

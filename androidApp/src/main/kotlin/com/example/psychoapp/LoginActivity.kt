@@ -6,11 +6,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        val splashScreen = installSplashScreen()
         setContentView(R.layout.login_activity)
 
         val btnGoToReg = findViewById<Button>(R.id.btn_go_to_reg)

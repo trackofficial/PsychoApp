@@ -58,7 +58,7 @@
                 android:id="@+id/btn_go_to_reg"
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
-                android:text="Зарегистрироваться"
+                android:text="@string/signed_in"
                 android:stateListAnimator="@null"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -73,7 +73,7 @@
             android:layout_marginLeft="60dp"
             android:layout_height="60dp"
             android:background="@drawable/black_round_button"
-            android:text="@string/login"
+            android:text="@string/login_for_button"
             android:id="@+id/login_btn"
             android:textColor="@color/background_color"
             android:fontFamily="@font/geistmonomedium"/>

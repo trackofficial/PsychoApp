@@ -5,4 +5,6 @@
     <string name="accept_password">prove your password</string>
     <string name="reg">reg</string>
     <string name="register">register</string>
+    <string name="signed_in">Sign In</string>
+    <string name="login_for_button">Log In</string>
 </resources>
