@@ -5,4 +5,6 @@
     <string name="password">пароль</string>
     <string name="accept_password">подтвердите пароль</string>
     <string name="reg">Зарегистрироваться</string>
+    <string name="register">Зарегистрироваться</string>
+
 </resources>
