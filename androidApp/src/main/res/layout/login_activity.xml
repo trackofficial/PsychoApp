@@ -49,23 +49,6 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
                 android:background="@drawable/round_block"/>
-            <EditText
-                android:visibility="gone"
-                android:textSize="15dp"
-                android:inputType="textPassword"
-                android:fontFamily="@font/geistmonomedium"
-                android:textCursorDrawable="@color/black"
-                android:hint="@string/accept_password"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black40"
-                android:paddingLeft="16dp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/accept_password_space"
-                android:layout_height="50dp"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"
-                android:background="@drawable/round_block"/>
             <Button
                 android:fontFamily="@font/geistmonomedium"
                 android:background="@null"
@@ -91,7 +74,7 @@
             android:layout_height="60dp"
             android:background="@drawable/black_round_button"
             android:text="@string/login"
-            android:id="@+id/reg_btn"
+            android:id="@+id/login_btn"
             android:textColor="@color/background_color"
             android:fontFamily="@font/geistmonomedium"/>
     </FrameLayout>

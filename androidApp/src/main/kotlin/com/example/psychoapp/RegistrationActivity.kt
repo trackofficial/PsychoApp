@@ -23,10 +23,10 @@ class RegistrationActivity : ComponentActivity() {
             val acceptedPassword = acceptUserPassword.text.toString().trim()
 
             if (login == "" || password == "") {
-                Toast.makeText(this, "There must be no empty fields", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
             }
             else if (password != acceptedPassword) {
-                Toast.makeText(this, "Passwords must be equal", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Пароли должны совпадать", Toast.LENGTH_LONG).show()
             }
             else {
                 val user = User(login, password)
@@ -34,12 +34,12 @@ class RegistrationActivity : ComponentActivity() {
 
                 val isRegistered = db.registerUser(user)
                 if (isRegistered) {
-                    Toast.makeText(this, "User $login was registered with password $password", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Регистрация прошла успешно", Toast.LENGTH_LONG).show()
 
                     finish()
                 }
                 else {
-                    Toast.makeText(this, "User with this login already exists!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Пользователем с таким логином уже существует. Пожалуйста, придумайте другой логин", Toast.LENGTH_LONG).show()
                 }
 
                 db.close()
