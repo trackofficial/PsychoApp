@@ -22,5 +22,8 @@
             android:theme="@style/Theme.PsychoApp" />
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.PsychoApp"/>
+        <activity android:name=".AddNoteActivity" />
+        <activity android:name=".NotesActivity" />
+
     </application>
 </manifest>

@@ -6,11 +6,16 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import java.time.Instant
 
-class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?) : SQLiteOpenHelper(context, "PsychoApp", factory, 1) {
+class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?) :
+    SQLiteOpenHelper(context, "PsychoApp", factory, 2) {
     override fun onCreate(db: SQLiteDatabase?) {
-        val query = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, login TEXT UNIQUE, password_hash TEXT)"
-        db!!.execSQL(query)
+        val userQuery = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, login TEXT UNIQUE, password_hash TEXT)"
+        db!!.execSQL(userQuery)
+
+        val notesQuery = "CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, body TEXT, timestamp INTEGER NOT NULL, user_login TEXT, FOREIGN KEY (user_login) REFERENCES users (login) ON DELETE CASCADE ON UPDATE CASCADE)"
+        db.execSQL(notesQuery)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -28,7 +33,8 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         return hashBytes.joinToString("") { byte -> "%02x".format(byte) }
     }
 
-    // ! проверка, существует ли в бд введённый юзером логин
+    // ! ---------- ПОЛЬЗОВАТЕЛИ ----------
+    // * проверка, существует ли в бд введённый юзером логин
     fun isLoginExists(login: String) : Boolean {
         val db = this.readableDatabase
         val query = "SELECT id FROM users WHERE login = ?"
@@ -75,5 +81,46 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         db.close()
 
         return isUserFound
+    }
+
+    // ! ---------- ЗАПИСИ ----------
+    fun addNote(note: Note) : Boolean {
+        val vals = ContentValues()
+        vals.put("title", note.title)
+        vals.put("body", note.body)
+        vals.put("user_login", note.userLogin)
+        vals.put("timestamp", note.timestamp.toEpochMilli())
+
+        val db = this.writableDatabase
+        val res = db.insert("notes", null, vals)
+
+        db.close()
+
+        return res != -1L
+    }
+
+    fun getUserNotes(userLogin: String) : List<Note> {
+        val notes = mutableListOf<Note>()
+
+        val db = readableDatabase
+        val query = "SELECT title, body, timestamp, user_login FROM notes WHERE user_login = ? ORDER BY timestamp DESC"
+        val cursor = db.rawQuery(query, arrayOf(userLogin))
+
+        cursor.use { c ->
+            while (c.moveToNext()) {
+                notes.add(
+                    Note(
+                        title = c.getString(0),
+                        body = c.getString(1),
+                        timestamp = Instant.ofEpochMilli(c.getLong(2)),
+                        userLogin = c.getString(3)
+                    )
+                )
+            }
+
+            db.close()
+
+            return notes
+        }
     }
 }

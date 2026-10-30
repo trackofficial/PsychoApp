@@ -34,6 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yournotes"
+            android:clickable="true"
+            android:id="@+id/redirect_to_notes"
             android:textSize="20dp"
             android:textColor="@color/fullblack"
             android:fontFamily="@font/geistmonosemibold"/>

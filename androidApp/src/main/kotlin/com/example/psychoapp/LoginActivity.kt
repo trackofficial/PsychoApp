@@ -40,6 +40,7 @@ class LoginActivity : ComponentActivity() {
                     Toast.makeText(this, "Вы успешно вошли в систему", Toast.LENGTH_LONG).show()
 
                     val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("USER_LOGIN", user.login) // * передача логина юзера ТОЛЬКО в MainActivity
                     startActivity(intent)
                 }
                 else {
