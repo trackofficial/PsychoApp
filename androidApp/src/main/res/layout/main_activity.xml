@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<!--📖-->
     <TextView
         android:id="@+id/icon"
         android:layout_width="wrap_content"
@@ -14,5 +14,63 @@
         android:textSize="32dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
-
-</FrameLayout>
+    <!--тут добавить цитаты-->
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:padding="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/round_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✏️"
+            android:textSize="24dp"/>
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yournotes"
+            android:textSize="20dp"
+            android:textColor="@color/fullblack"
+            android:fontFamily="@font/geistmonosemibold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/noteopr"
+            android:fontFamily="@font/geistmonomedium"
+            android:textSize="12dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:padding="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/round_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📖"
+            android:textSize="24dp"/>
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aiassist"
+            android:textSize="20dp"
+            android:textColor="@color/fullblack"
+            android:fontFamily="@font/geistmonosemibold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/aiopr"
+            android:fontFamily="@font/geistmonomedium"
+            android:textSize="12dp"/>
+    </LinearLayout>
+</LinearLayout>
