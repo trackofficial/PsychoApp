@@ -42,6 +42,12 @@ class LoginActivity : ComponentActivity() {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
+                else {
+                    Toast.makeText(this, "Введены неверные данные", Toast.LENGTH_LONG).show()
+
+                    userLogin.text.clear()
+                    userPassword.text.clear()
+                }
             }
         }
     }
