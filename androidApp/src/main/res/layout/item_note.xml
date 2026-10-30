@@ -3,31 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="?android:attr/selectableItemBackground"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="14dp"
+    android:layout_marginRight="18dp"
+    android:layout_marginLeft="18dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/round_block"
     android:clickable="true"
     android:focusable="true">
 
     <TextView
+        android:fontFamily="@font/geistsemibold"
         android:id="@+id/note_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Заголовок"
+        android:text="Title"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
+        android:textColor="@color/fullblack"
         android:maxLines="1"
         android:ellipsize="end" />
 
     <TextView
+        android:fontFamily="@font/geistmedium"
         android:id="@+id/note_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Текст заметки"
-        android:textSize="14sp"
-        android:textColor="#666666"
-        android:maxLines="2"
+        android:text="description"
+        android:textSize="12dp"
+        android:textColor="@color/black40"
+        android:maxLines="3"
         android:ellipsize="end" />
 
     <TextView
@@ -36,12 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="01.01.2025 12:00"
-        android:textSize="12sp"
-        android:textColor="#999999" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="#DDDDDD" />
+        android:fontFamily="@font/geistsemibold"
+        android:textSize="10sp"
+        android:textColor="#5C5A5A" />
 </LinearLayout>

@@ -14,8 +14,12 @@
         android:textSize="32dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
+
     <!--тут добавить цитаты-->
+
     <LinearLayout
+        android:id="@+id/yournotesbutton"
+        android:clickable="true"
         android:layout_marginTop="40dp"
         android:padding="15dp"
         android:layout_marginLeft="20dp"
@@ -34,8 +38,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yournotes"
-            android:clickable="true"
-            android:id="@+id/redirect_to_notes"
             android:textSize="20dp"
             android:textColor="@color/fullblack"
             android:fontFamily="@font/geistsemibold"/>
@@ -47,6 +49,8 @@
             android:textSize="10dp"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/youraiassisbutton"
+        android:clickable="true"
         android:layout_marginTop="12dp"
         android:padding="15dp"
         android:layout_marginLeft="20dp"

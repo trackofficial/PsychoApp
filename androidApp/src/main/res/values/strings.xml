@@ -9,6 +9,9 @@
     <string name="login_for_button">Log In</string>
     <string name="yournotes">Your Notes</string>
     <string name="aiassist">Your AI Assistant</string>
+    <string name="title">Note title</string>
+    <string name="descript">the text of the note</string>
+    <string name="save">Save</string>
     <string name="aiopr">A digital assistant for psychological help in real time. It is designed to analyze difficult situations, answer questions about mental health and express diagnosis of the current emotional state.</string>
     <string name="noteopr">All your thoughts and important notes in one place. Capture ideas, structure tasks, store useful materials, systematize inner experiences, track mental dynamics, and identify behavioral patterns based on the history of recordings.</string>
 </resources>

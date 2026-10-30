@@ -22,8 +22,8 @@ class NotesActivity : ComponentActivity() {
         val userLogin = intent.getStringExtra("USER_LOGIN")
 
         val recycler = findViewById<RecyclerView>(R.id.notes_recycler)
-        val emptyView = findViewById<TextView>(R.id.empty_view)
-        val btnAdd = findViewById<Button>(R.id.btn_add_note)
+        val emptyView = findViewById<View>(R.id.empty_view)
+        val btnAdd = findViewById<View>(R.id.btn_add_note)
 
         val adapter = NoteAdapter()
         recycler.layoutManager = LinearLayoutManager(this)
@@ -45,7 +45,7 @@ class NotesActivity : ComponentActivity() {
         val notes = db.getUserNotes(userLogin)
 
         val recycler = findViewById<RecyclerView>(R.id.notes_recycler)
-        val emptyView = findViewById<TextView>(R.id.empty_view)
+        val emptyView = findViewById<View>(R.id.empty_view)
 
         (recycler.adapter as NoteAdapter).submitList(notes)
         emptyView.visibility = if (notes.isEmpty()) View.VISIBLE else View.GONE

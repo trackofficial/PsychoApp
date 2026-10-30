@@ -1,48 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
-
-    <!-- Поле для заголовка -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <EditText
+        android:textColor="@color/fullblack"
         android:id="@+id/edit_note_title"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Заголовок заметки"
-        android:inputType="text"
-        android:textSize="18sp"
+        android:hint="@string/title"
+        android:textSize="21sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Поле для основного текста -->
+        android:fontFamily="@font/geistsemibold"
+        android:inputType="textMultiLine"
+        android:background="@null" />
     <EditText
+        android:textColor="@color/fullblack"
+        android:fontFamily="@font/geistmedium"
         android:id="@+id/edit_note_text"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textSize="16dp"
         android:layout_marginBottom="16dp"
-        android:hint="Введите текст заметки..."
+        android:hint="@string/descript"
         android:gravity="top|start"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/btn_save_note"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_note_title" />
-
-    <!-- Кнопка подтверждения -->
+        android:background="@null" />
+</LinearLayout>
     <Button
-        android:id="@+id/btn_save_note"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Сохранить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:stateListAnimator="@null"
+        android:elevation="0dp"
+        android:layout_gravity="bottom"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/black_round_button"
+        android:text="@string/save"
+        android:id="@+id/btn_save_note"
+        android:textColor="@color/background_color"
+        android:fontFamily="@font/geistmedium"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
