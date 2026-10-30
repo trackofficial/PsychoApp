@@ -36,12 +36,12 @@
             android:text="@string/yournotes"
             android:textSize="20dp"
             android:textColor="@color/fullblack"
-            android:fontFamily="@font/geistmonosemibold"/>
+            android:fontFamily="@font/geistsemibold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/noteopr"
-            android:fontFamily="@font/geistmonomedium"
+            android:fontFamily="@font/geistmedium"
             android:textSize="12dp"/>
     </LinearLayout>
     <LinearLayout
@@ -65,12 +65,12 @@
             android:text="@string/aiassist"
             android:textSize="20dp"
             android:textColor="@color/fullblack"
-            android:fontFamily="@font/geistmonosemibold"/>
+            android:fontFamily="@font/geistsemibold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/aiopr"
-            android:fontFamily="@font/geistmonomedium"
+            android:fontFamily="@font/geistmedium"
             android:textSize="12dp"/>
     </LinearLayout>
 </LinearLayout>
