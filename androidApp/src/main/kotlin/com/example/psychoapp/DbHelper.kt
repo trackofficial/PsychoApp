@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import java.time.Instant
 
 class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?) :
-    SQLiteOpenHelper(context, "PsychoApp", factory, 2) {
+    SQLiteOpenHelper(context, "PsychoApp", factory, 3) {
     override fun onCreate(db: SQLiteDatabase?) {
         val userQuery = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, login TEXT UNIQUE, password_hash TEXT)"
         db!!.execSQL(userQuery)
@@ -103,17 +103,18 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         val notes = mutableListOf<Note>()
 
         val db = readableDatabase
-        val query = "SELECT title, body, timestamp, user_login FROM notes WHERE user_login = ? ORDER BY timestamp DESC"
+        val query = "SELECT id, title, body, timestamp, user_login FROM notes WHERE user_login = ? ORDER BY timestamp DESC"
         val cursor = db.rawQuery(query, arrayOf(userLogin))
 
         cursor.use { c ->
             while (c.moveToNext()) {
                 notes.add(
                     Note(
-                        title = c.getString(0),
-                        body = c.getString(1),
-                        timestamp = Instant.ofEpochMilli(c.getLong(2)),
-                        userLogin = c.getString(3)
+                        id = c.getLong(0),
+                        title = c.getString(1),
+                        body = c.getString(2),
+                        timestamp = Instant.ofEpochMilli(c.getLong(3)),
+                        userLogin = c.getString(4)
                     )
                 )
             }
@@ -122,5 +123,19 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
 
             return notes
         }
+    }
+
+    fun updateNote(id: Long, title: String, body: String) : Boolean {
+        val vals = ContentValues()
+        vals.put("title", title)
+        vals.put("body", body)
+        vals.put("timestamp", System.currentTimeMillis())
+
+        val db = writableDatabase
+        val res = db.update("notes", vals, "id = ?", arrayOf(id.toString()))
+
+        db.close()
+
+        return res.toLong() != -1L
     }
 }

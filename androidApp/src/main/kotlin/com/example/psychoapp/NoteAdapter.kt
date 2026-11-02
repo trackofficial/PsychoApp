@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(Diff) {
+class NoteAdapter(private val onNoteClick: (Note) -> Unit) : ListAdapter<Note, NoteAdapter.NoteViewHolder>(Diff) {
     class NoteViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById<TextView>(R.id.note_title)
         val body: TextView = view.findViewById<TextView>(R.id.note_body)
@@ -28,10 +28,14 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(Diff) {
         holder.title.text = note.title
         holder.body.text = note.body
         holder.date.text = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm").withZone(ZoneId.systemDefault()).format(note.timestamp)
+
+        holder.itemView.setOnClickListener {
+            onNoteClick(note)
+        }
     }
 
     object Diff : DiffUtil.ItemCallback<Note>() {
-        override fun areItemsTheSame(a: Note, b: Note) = a.timestamp == b.timestamp
+        override fun areItemsTheSame(a: Note, b: Note) = a.id == b.id
         override fun areContentsTheSame(a: Note, b: Note) = a == b
     }
 }

@@ -22,10 +22,19 @@ class NotesActivity : ComponentActivity() {
         val userLogin = intent.getStringExtra("USER_LOGIN")
 
         val recycler = findViewById<RecyclerView>(R.id.notes_recycler)
-        val emptyView = findViewById<View>(R.id.empty_view)
         val btnAdd = findViewById<View>(R.id.btn_add_note)
 
-        val adapter = NoteAdapter()
+        val adapter = NoteAdapter{ note ->
+            // * переход на страницу редактирования заметки
+            val intent = Intent(this, EditNoteActivity::class.java)
+            intent.putExtra("USER_LOGIN", userLogin)
+
+            intent.putExtra("NOTE_ID", note.id)
+            intent.putExtra("NOTE_TITLE", note.title)
+            intent.putExtra("NOTE_BODY", note.body)
+
+            startActivity(intent)
+        }
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
 

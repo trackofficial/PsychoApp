@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Title"
+        android:clickable="true"
         android:textSize="18sp"
         android:textColor="@color/fullblack"
         android:maxLines="1"
