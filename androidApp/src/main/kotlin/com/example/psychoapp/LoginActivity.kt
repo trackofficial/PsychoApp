@@ -28,7 +28,7 @@ class LoginActivity : ComponentActivity() {
             val login = userLogin.text.toString().trim()
             val password = userPassword.text.toString().trim()
 
-            if (login == "" || password == "") {
+            if (login.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
             }
             else {

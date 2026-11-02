@@ -24,7 +24,7 @@ class RegistrationActivity : ComponentActivity() {
             val password = userPassword.text.toString().trim()
             val acceptedPassword = acceptUserPassword.text.toString().trim()
 
-            if (login == "" || password == "") {
+            if (login.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
             }
             else if (password != acceptedPassword) {

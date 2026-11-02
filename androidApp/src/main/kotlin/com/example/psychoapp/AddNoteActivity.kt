@@ -24,7 +24,7 @@ class AddNoteActivity : ComponentActivity() {
             val title = noteTitle.text.toString().trim()
             val text = noteText.text.toString().trim()
 
-            if (title == "" || text == "") {
+            if (title.isEmpty() || text.isEmpty()) {
                 Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
             }
             else {
