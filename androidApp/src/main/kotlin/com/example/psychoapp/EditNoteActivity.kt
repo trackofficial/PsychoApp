@@ -14,8 +14,6 @@ class EditNoteActivity : ComponentActivity() {
 
         setContentView(R.layout.edit_note_activity)
 
-        val userLogin = intent.getStringExtra("USER_LOGIN") ?: "unknown_user"
-
         val noteId = intent.getLongExtra("NOTE_ID", -1L)
         val noteTitle = intent.getStringExtra("NOTE_TITLE") ?: ""
         val noteText = intent.getStringExtra("NOTE_BODY") ?: ""

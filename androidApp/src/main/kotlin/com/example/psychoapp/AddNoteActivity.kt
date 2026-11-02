@@ -14,7 +14,7 @@ class AddNoteActivity : ComponentActivity() {
 
         setContentView(R.layout.add_note_activity)
 
-        val userLogin = intent.getStringExtra("USER_LOGIN") ?: "unknown_user"
+        val userLogin = intent.getStringExtra("USER_LOGIN") ?: SessionManager(this).userLogin ?: "unknown_user"
 
         val noteTitle = findViewById<EditText>(R.id.edit_note_title)
         val noteText = findViewById<EditText>(R.id.edit_note_text)

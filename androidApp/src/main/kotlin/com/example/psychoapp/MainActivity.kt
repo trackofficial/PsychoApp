@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
 
         setContentView(R.layout.main_activity)
 
-        val userLogin = intent.getStringExtra("USER_LOGIN")
+        val userLogin = intent.getStringExtra("USER_LOGIN") ?: SessionManager(this).userLogin ?: "unknown_user"
 
         val toNotes = findViewById<LinearLayout>(R.id.yournotesbutton)
         toNotes.setOnClickListener {

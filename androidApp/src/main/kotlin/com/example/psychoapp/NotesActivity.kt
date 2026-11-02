@@ -19,7 +19,7 @@ class NotesActivity : ComponentActivity() {
 
         setContentView(R.layout.notes_activity)
 
-        val userLogin = intent.getStringExtra("USER_LOGIN")
+        val userLogin = intent.getStringExtra("USER_LOGIN") ?: SessionManager(this).userLogin ?: "unknown_user"
 
         val recycler = findViewById<RecyclerView>(R.id.notes_recycler)
         val btnAdd = findViewById<View>(R.id.btn_add_note)
@@ -48,7 +48,7 @@ class NotesActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
 
-        val userLogin = intent.getStringExtra("USER_LOGIN") ?: "unknown_user"
+        val userLogin = intent.getStringExtra("USER_LOGIN") ?: SessionManager(this).userLogin ?: "unknown_user"
 
         val db = DbHelper(this, null)
         val notes = db.getUserNotes(userLogin)
