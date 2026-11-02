@@ -11,6 +11,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <EditText
+        android:layout_marginTop="34dp"
         android:textColor="@color/fullblack"
         android:id="@+id/edit_note_title"
         android:layout_width="wrap_content"
