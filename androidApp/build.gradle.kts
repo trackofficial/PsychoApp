@@ -1,8 +1,14 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeCompiler)
+}
+
+val localProps = Properties().apply {
+    val f = rootProject.file("local.properties")
+    if (f.exists()) f.inputStream().use { load(it) }
 }
 
 kotlin {
@@ -18,6 +24,9 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     implementation(libs.compose.uiToolingPreview)
     debugImplementation(libs.compose.uiTooling)
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
 }
 
 android {
@@ -30,6 +39,11 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField(
+            "String", "AI_API_KEY",
+            "\"${localProps.getProperty("AI_API_KEY", "")}\""
+        )
     }
     packaging {
         resources {
@@ -51,5 +65,6 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }

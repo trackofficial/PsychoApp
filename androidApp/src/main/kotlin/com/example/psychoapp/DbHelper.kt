@@ -16,11 +16,17 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
 
         val notesQuery = "CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, body TEXT, timestamp INTEGER NOT NULL, user_login TEXT, FOREIGN KEY (user_login) REFERENCES users (login) ON DELETE CASCADE ON UPDATE CASCADE)"
         db.execSQL(notesQuery)
+
+        val aiQuery = "CREATE TABLE IF NOT EXISTS ai_chat_messages (id INTEGER PRIMARY KEY AUTOINCREMENT, user_login TEXT NOT NULL, role TEXT NOT NULL, content TEXT NOT NULL, timestamp INTEGER NOT NULL, FOREIGN KEY (user_login) REFERENCES users (login) ON DELETE CASCADE ON UPDATE CASCADE)"
+        db.execSQL(aiQuery)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        val query = "DROP TABLE IF EXISTS users"
-        db!!.execSQL(query)
+        val usersQuery = "DROP TABLE IF EXISTS users"
+        db!!.execSQL(usersQuery)
+
+        val aiQuery = "DROP TABLE IF EXISTS ai_chat_message"
+        db.execSQL(aiQuery)
 
         onCreate(db) // * создаём бд заново после сброса
     }
@@ -137,5 +143,51 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         db.close()
 
         return res.toLong() != -1L
+    }
+
+    // ! ---------- ИСТОРИЯ ЧАТА С ИИ ----------
+    fun addAiMessage(userLogin: String, role: String, content: String): Boolean {
+        val vals = ContentValues().apply {
+            put("user_login", userLogin)
+            put("role", role) // * user или assistant
+            put("content", content)
+            put("timestamp", System.currentTimeMillis())
+        }
+        val db = writableDatabase
+        val res = db.insert("ai_chat_messages", null, vals)
+        db.close()
+        return res != -1L
+    }
+
+    fun getAiChatHistory(userLogin: String): List<AiMessage> {
+        val list = mutableListOf<AiMessage>()
+        val db = readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT id, user_login, role, content, timestamp FROM ai_chat_messages " +
+                    "WHERE user_login = ? ORDER BY timestamp ASC",
+            arrayOf(userLogin)
+        )
+        cursor.use { c ->
+            while (c.moveToNext()) {
+                list.add(
+                    AiMessage(
+                        id = c.getLong(0),
+                        userLogin = c.getString(1),
+                        role = c.getString(2),
+                        content = c.getString(3),
+                        timestamp = Instant.ofEpochMilli(c.getLong(4))
+                    )
+                )
+            }
+        }
+        db.close()
+        return list
+    }
+
+    fun clearAiChatHistory(userLogin: String): Boolean {
+        val db = writableDatabase
+        val res = db.delete("ai_chat_messages", "user_login = ?", arrayOf(userLogin))
+        db.close()
+        return res > 0
     }
 }

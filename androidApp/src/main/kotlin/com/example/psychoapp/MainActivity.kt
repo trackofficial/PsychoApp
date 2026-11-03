@@ -17,6 +17,20 @@ class MainActivity : ComponentActivity() {
 
         val userLogin = intent.getStringExtra("USER_LOGIN") ?: SessionManager(this).userLogin ?: "unknown_user"
 
+        val toNotes = findViewById<LinearLayout>(R.id.yournotesbutton)
+        toNotes.setOnClickListener {
+            val intent = Intent(this, NotesActivity::class.java)
+            intent.putExtra("USER_LOGIN", userLogin)
+            startActivity(intent)
+        }
+
+        val toAiAssistant = findViewById<LinearLayout>(R.id.youraiassisbutton)
+        toAiAssistant.setOnClickListener {
+            val intent = Intent(this, AiChatActivity::class.java)
+            intent.putExtra("USER_LOGIN", userLogin)
+            startActivity(intent)
+        }
+
         val btnLogout = findViewById<Button>(R.id.btn_logout)
         btnLogout.setOnClickListener {
             SessionManager(this).clear()
@@ -25,13 +39,6 @@ class MainActivity : ComponentActivity() {
             startActivity(intent)
 
             finish()
-        }
-
-        val toNotes = findViewById<LinearLayout>(R.id.yournotesbutton)
-        toNotes.setOnClickListener {
-            val intent = Intent(this, NotesActivity::class.java)
-            intent.putExtra("USER_LOGIN", userLogin)
-            startActivity(intent)
         }
     }
 }
