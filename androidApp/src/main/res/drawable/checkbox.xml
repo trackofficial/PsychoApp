@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ====== ОТМЕЧЕН ====== -->
+    <item android:state_checked="true">
+        <layer-list>
+            <!-- Рамка -->
+            <item>
+                <shape android:shape="rectangle">
+                    <size android:width="22dp" android:height="22dp"/>
+                    <corners android:radius="4dp"/>
+                    <solid android:color="@android:color/transparent"/>
+                    <stroke android:width="1.5dp" android:color="@color/black"/>
+                </shape>
+            </item>
+
+            <!-- Галочка с отступами 2dp со всех сторон (22dp - 2dp - 2dp = 18dp) -->
+            <item
+                android:drawable="@drawable/ic_check_black"
+                android:top="2dp"
+                android:bottom="2dp"
+                android:left="2dp"
+                android:right="2dp"/>
+        </layer-list>
+    </item>
+
+    <!-- ====== НЕ ОТМЕЧЕН ====== -->
+    <item>
+        <shape android:shape="rectangle">
+            <size android:width="22dp" android:height="22dp"/>
+            <corners android:radius="4dp"/>
+            <solid android:color="@android:color/transparent"/>
+            <stroke android:width="1.5dp" android:color="@color/black40"/>
+        </shape>
+    </item>
+</selector>

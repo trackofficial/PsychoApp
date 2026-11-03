@@ -49,6 +49,27 @@
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
                 android:background="@drawable/round_block"/>
+            <CheckBox
+                android:id="@+id/cb_remember_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/geistmedium"
+                android:text="@string/rememberme"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:button="@drawable/checkbox"
+                android:buttonTint="@null"
+                android:gravity="center_vertical"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:includeFontPadding="false"/>
             <Button
                 android:fontFamily="@font/geistmedium"
                 android:background="@null"
@@ -62,13 +83,6 @@
                 android:stateListAnimator="@null"
                 android:textSize="12sp" />
 
-            <CheckBox
-                android:id="@+id/cb_remember_me"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/rememberme"
-                android:fontFamily="@font/geistmedium"
-                android:layout_marginLeft="20dp"/>
         </LinearLayout>
         <Button
             android:stateListAnimator="@null"
