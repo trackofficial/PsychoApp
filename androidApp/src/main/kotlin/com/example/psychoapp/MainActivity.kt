@@ -25,11 +25,6 @@ class MainActivity : ComponentActivity() {
         }
 
         val toAiAssistant = findViewById<LinearLayout>(R.id.youraiassisbutton)
-        toAiAssistant.setOnClickListener {
-            val intent = Intent(this, AiChatActivity::class.java)
-            intent.putExtra("USER_LOGIN", userLogin)
-            startActivity(intent)
-        }
 
         val btnLogout = findViewById<Button>(R.id.btn_logout)
         btnLogout.setOnClickListener {

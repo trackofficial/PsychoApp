@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import java.time.Instant
 
 class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?) :
-    SQLiteOpenHelper(context, "PsychoApp", factory, 3) {
+    SQLiteOpenHelper(context, "PsychoApp", factory, 4) {
     override fun onCreate(db: SQLiteDatabase?) {
         val userQuery = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, login TEXT UNIQUE, password_hash TEXT)"
         db!!.execSQL(userQuery)
@@ -143,51 +143,5 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         db.close()
 
         return res.toLong() != -1L
-    }
-
-    // ! ---------- ИСТОРИЯ ЧАТА С ИИ ----------
-    fun addAiMessage(userLogin: String, role: String, content: String): Boolean {
-        val vals = ContentValues().apply {
-            put("user_login", userLogin)
-            put("role", role) // * user или assistant
-            put("content", content)
-            put("timestamp", System.currentTimeMillis())
-        }
-        val db = writableDatabase
-        val res = db.insert("ai_chat_messages", null, vals)
-        db.close()
-        return res != -1L
-    }
-
-    fun getAiChatHistory(userLogin: String): List<AiMessage> {
-        val list = mutableListOf<AiMessage>()
-        val db = readableDatabase
-        val cursor = db.rawQuery(
-            "SELECT id, user_login, role, content, timestamp FROM ai_chat_messages " +
-                    "WHERE user_login = ? ORDER BY timestamp ASC",
-            arrayOf(userLogin)
-        )
-        cursor.use { c ->
-            while (c.moveToNext()) {
-                list.add(
-                    AiMessage(
-                        id = c.getLong(0),
-                        userLogin = c.getString(1),
-                        role = c.getString(2),
-                        content = c.getString(3),
-                        timestamp = Instant.ofEpochMilli(c.getLong(4))
-                    )
-                )
-            }
-        }
-        db.close()
-        return list
-    }
-
-    fun clearAiChatHistory(userLogin: String): Boolean {
-        val db = writableDatabase
-        val res = db.delete("ai_chat_messages", "user_login = ?", arrayOf(userLogin))
-        db.close()
-        return res > 0
     }
 }

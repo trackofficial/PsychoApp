@@ -27,7 +27,6 @@
         <activity android:name=".AddNoteActivity" />
         <activity android:name=".NotesActivity" />
         <activity android:name=".EditNoteActivity" />
-        <activity android:name=".AiChatActivity" />
 
     </application>
 </manifest>
