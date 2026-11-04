@@ -17,11 +17,7 @@ class LoginActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()
 
-        val db = Room.databaseBuilder(
-            applicationContext,
-            UsersDb::class.java,
-            "users_database"
-        ).build()
+        val db = UsersDbProvider.get(this)
 
         val session = SessionManager(this)
         if (session.isLoggedIn) {

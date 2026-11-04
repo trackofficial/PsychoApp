@@ -7,14 +7,7 @@ import androidx.room.PrimaryKey
 import java.time.Instant
 
 @Entity(
-    tableName = Note.TABLE_NAME,
-    foreignKeys = [
-        ForeignKey(
-            entity = User::class,
-            parentColumns = [User.LOGIN_COLUMN],
-            childColumns = [Note.USER_LOGIN]
-        )
-    ]
+    tableName = Note.TABLE_NAME
 )
 data class Note(
     @PrimaryKey(autoGenerate = true)

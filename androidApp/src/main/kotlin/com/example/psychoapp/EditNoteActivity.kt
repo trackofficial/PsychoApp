@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -19,11 +18,7 @@ class EditNoteActivity : ComponentActivity() {
 
         setContentView(R.layout.edit_note_activity)
 
-        val db = Room.databaseBuilder(
-            applicationContext,
-            NotesDb::class.java,
-            "notes_database"
-        ).build()
+        val db = NotesDbProvider.get(this)
 
         val userLogin = SessionManager(this).userLogin ?: "unknown_user"
 

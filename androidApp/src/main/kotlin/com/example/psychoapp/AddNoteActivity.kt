@@ -21,11 +21,7 @@ class AddNoteActivity : ComponentActivity() {
 
         val userLogin = intent.getStringExtra("USER_LOGIN") ?: SessionManager(this).userLogin ?: "unknown_user"
 
-        val db = Room.databaseBuilder(
-            applicationContext,
-            NotesDb::class.java,
-            "notes_database"
-        ).build()
+        val db = NotesDbProvider.get(this)
 
         val noteTitle = findViewById<EditText>(R.id.edit_note_title)
         val noteText = findViewById<EditText>(R.id.edit_note_text)

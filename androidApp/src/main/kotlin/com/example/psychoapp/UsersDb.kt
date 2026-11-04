@@ -15,12 +15,9 @@ import androidx.room.RoomDatabaseConstructor
         User::class,
     ], version = 1
 )
-@ConstructedBy(UsersDbConstructor::class)
 abstract class UsersDb : RoomDatabase() {
     abstract fun getUsersDao(): UsersDao
 }
-
-expect object UsersDbConstructor : RoomDatabaseConstructor<UsersDb>
 
 @Dao
 interface UsersDao {

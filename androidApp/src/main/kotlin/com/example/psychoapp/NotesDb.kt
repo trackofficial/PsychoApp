@@ -1,6 +1,5 @@
 package com.example.psychoapp
 
-import androidx.room.ConstructedBy
 import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Delete
@@ -8,7 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.RoomDatabase
-import androidx.room.RoomDatabaseConstructor
+import androidx.room.TypeConverters
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
@@ -17,12 +16,10 @@ import kotlinx.coroutines.flow.Flow
         Note::class,
     ], version = 1
 )
-@ConstructedBy(NotesDbConstructor::class)
+@TypeConverters(InstantConverter::class)
 abstract class NotesDb : RoomDatabase() {
     abstract fun getNotesDao(): NotesDao
 }
-
-expect object NotesDbConstructor : RoomDatabaseConstructor<NotesDb>
 
 @Dao
 interface NotesDao {

@@ -17,11 +17,7 @@ class RegistrationActivity : ComponentActivity() {
 
         setContentView(R.layout.registration_activity)
 
-        val db = Room.databaseBuilder(
-            applicationContext,
-            UsersDb::class.java,
-            "users_database"
-        ).build()
+        val db = UsersDbProvider.get(this)
 
         val userLogin = findViewById<EditText>(R.id.login_space)
         val userPassword = findViewById<EditText>(R.id.password_space)
