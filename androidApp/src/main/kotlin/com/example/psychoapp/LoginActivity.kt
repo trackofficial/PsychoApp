@@ -8,11 +8,20 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
+import kotlinx.coroutines.launch
 
 class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            UsersDb::class.java,
+            "users_database"
+        ).build()
 
         val session = SessionManager(this)
         if (session.isLoggedIn) {
@@ -43,26 +52,30 @@ class LoginActivity : ComponentActivity() {
                 Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
             }
             else {
-                val user = User(login, password)
-                val db = DbHelper(this, null)
+                val userManager = UserManager(db)
 
-                val isLoggedIn = db.loginUser(user)
-                if (isLoggedIn) {
-                    if (rememberMe.isChecked) {
-                        session.saveSession(login)
+                val user = User(login=login, password=password)
+
+                lifecycleScope.launch {
+                    val isLoggedIn = userManager.loginUser(user)
+
+                    if (isLoggedIn) {
+                        if (rememberMe.isChecked) {
+                            session.saveSession(login)
+                        }
+
+                        Toast.makeText(this@LoginActivity, "Вы успешно вошли в систему", Toast.LENGTH_LONG).show()
+
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.putExtra("USER_LOGIN", user.login) // * передача логина юзера ТОЛЬКО в MainActivity
+                        startActivity(intent)
                     }
+                    else {
+                        Toast.makeText(this@LoginActivity, "Введены неверные данные", Toast.LENGTH_LONG).show()
 
-                    Toast.makeText(this, "Вы успешно вошли в систему", Toast.LENGTH_LONG).show()
-
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.putExtra("USER_LOGIN", user.login) // * передача логина юзера ТОЛЬКО в MainActivity
-                    startActivity(intent)
-                }
-                else {
-                    Toast.makeText(this, "Введены неверные данные", Toast.LENGTH_LONG).show()
-
-                    userLogin.text.clear()
-                    userPassword.text.clear()
+                        userLogin.text.clear()
+                        userPassword.text.clear()
+                    }
                 }
             }
         }

@@ -6,6 +6,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
+import kotlinx.coroutines.launch
 
 class RegistrationActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +16,12 @@ class RegistrationActivity : ComponentActivity() {
         val splashScreen = installSplashScreen()
 
         setContentView(R.layout.registration_activity)
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            UsersDb::class.java,
+            "users_database"
+        ).build()
 
         val userLogin = findViewById<EditText>(R.id.login_space)
         val userPassword = findViewById<EditText>(R.id.password_space)
@@ -31,20 +40,20 @@ class RegistrationActivity : ComponentActivity() {
                 Toast.makeText(this, "Пароли должны совпадать", Toast.LENGTH_LONG).show()
             }
             else {
-                val user = User(login, password)
-                val db = DbHelper(this, null)
+                val userManager = UserManager(db)
+                lifecycleScope.launch {
+                    val user = User(login=login, password=password)
+                    val isRegistered = userManager.registerUser(user)
 
-                val isRegistered = db.registerUser(user)
-                if (isRegistered) {
-                    Toast.makeText(this, "Регистрация прошла успешно", Toast.LENGTH_LONG).show()
+                    if (isRegistered) {
+                        Toast.makeText(this@RegistrationActivity, "Регистрация прошла успешно", Toast.LENGTH_LONG).show()
 
-                    finish()
+                        finish()
+                    }
+                    else {
+                        Toast.makeText(this@RegistrationActivity, "Логин занят", Toast.LENGTH_LONG).show()
+                    }
                 }
-                else {
-                    Toast.makeText(this, "Пользователем с таким логином уже существует. Пожалуйста, придумайте другой логин", Toast.LENGTH_LONG).show()
-                }
-
-                db.close()
             }
         }
     }
