@@ -1,8 +1,8 @@
 [versions]
-agp = "9.4.1"
-android-compileSdk = "37"
+agp = "8.7.3"
+android-compileSdk = "35"
 android-minSdk = "32"
-android-targetSdk = "37"
+android-targetSdk = "35"
 androidx-activity = "1.13.0"
 androidx-appcompat = "1.8.0"
 androidx-core = "1.19.1"
@@ -17,8 +17,8 @@ coroutines = "1.9.0"
 kotlinx-coroutines = "1.11.0"
 material3 = "1.12.0-alpha03"
 
-ksp = "2.0.21-1.0.27"
-roomVersion = "2.7.0"
+ksp = "2.1.0-1.0.29"
+roomVersion = "2.7.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -63,3 +63,5 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinAndroidNoVersion = { id = "org.jetbrains.kotlin.android" }
