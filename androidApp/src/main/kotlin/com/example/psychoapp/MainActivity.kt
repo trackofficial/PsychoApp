@@ -4,9 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
+import com.example.psychoapp.chat.runRealCompleteSmokeTest
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +27,11 @@ class MainActivity : ComponentActivity() {
         }
 
         val toAiAssistant = findViewById<LinearLayout>(R.id.youraiassisbutton)
+        toAiAssistant.setOnClickListener {
+            lifecycleScope.launch {
+                runRealCompleteSmokeTest(this@MainActivity)
+            }
+        }
 
         val btnLogout = findViewById<Button>(R.id.btn_logout)
         btnLogout.setOnClickListener {
