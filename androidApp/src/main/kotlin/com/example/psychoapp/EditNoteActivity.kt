@@ -41,12 +41,12 @@ class EditNoteActivity : ComponentActivity() {
                 Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
             }
             else {
+                val noteManager = NoteManager(db)
                 lifecycleScope.launch {
                     val note = Note(id=noteId, title=newNoteTitle, body=newNoteText, userLogin=userLogin)
-                    val updatedNote = withContext(Dispatchers.IO) {
-                        db.getNotesDao().update(note)
-                    }
-                    if (updatedNote > 0) {
+                    val updatedNote = noteManager.updateNote(note)
+
+                    if (updatedNote) {
                         Toast.makeText(this@EditNoteActivity, "Заметка успешно изменена", Toast.LENGTH_LONG).show()
                         finish()
                     }

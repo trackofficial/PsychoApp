@@ -35,14 +35,12 @@ class AddNoteActivity : ComponentActivity() {
                 Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
             }
             else {
-                val note = Note(title=title, body=text, userLogin=userLogin)
-
+                val noteManager = NoteManager(db)
                 lifecycleScope.launch {
-                    val insertedNoteId = withContext(Dispatchers.IO) {
-                        db.getNotesDao().insert(note)
-                    }
+                    val note = Note(title=title, body=text, userLogin=userLogin)
+                    val insertedNoteId = noteManager.addNote(note)
 
-                    if (insertedNoteId >= 0L) {
+                    if (insertedNoteId) {
                         Toast.makeText(this@AddNoteActivity, "Заметка успешно сохранена", Toast.LENGTH_LONG).show()
                         finish()
                     }
