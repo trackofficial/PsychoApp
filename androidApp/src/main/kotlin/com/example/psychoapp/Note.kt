@@ -25,10 +25,10 @@ data class Note(
     companion object {
         const val TABLE_NAME = "notes"
 
-        private const val ID_COLUMN = "id"
-        private const val TITLE_COLUMN = "title"
-        private const val TEXT_COLUMN = "body"
-        private const val TIMESTAMP_COLUMN = "timestamp"
-        private const val USER_LOGIN = "user_login"
+        const val ID_COLUMN = "id"
+        const val TITLE_COLUMN = "title"
+        const val TEXT_COLUMN = "body"
+        const val TIMESTAMP_COLUMN = "timestamp"
+        const val USER_LOGIN = "user_login"
     }
 }

@@ -21,8 +21,8 @@ data class User(
     companion object {
         const val TABLE_NAME = "users"
 
-        private const val ID_COLUMN = "id"
+        const val ID_COLUMN = "id"
         const val LOGIN_COLUMN = "login"
-        private const val PASSWORD_HASH_COLUMN = "password_hash"
+        const val PASSWORD_HASH_COLUMN = "password_hash"
     }
 }
