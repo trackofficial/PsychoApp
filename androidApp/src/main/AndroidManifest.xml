@@ -14,19 +14,20 @@
         <!-- АКТИВНОСТИ -->
         <activity
             android:exported="true"
-            android:name=".LoginActivity">
+            android:name=".ui.auth.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrationActivity"
+        <activity android:name=".ui.auth.RegistrationActivity"
             android:theme="@style/Theme.PsychoApp" />
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.main.MainActivity"
             android:theme="@style/Theme.PsychoApp"/>
-        <activity android:name=".AddNoteActivity" />
-        <activity android:name=".NotesActivity" />
-        <activity android:name=".EditNoteActivity" />
+        <activity android:name=".ui.notes.AddNoteActivity" />
+        <activity android:name=".ui.notes.NotesActivity" />
+        <activity android:name=".ui.notes.EditNoteActivity" />
+        <activity android:name=".ui.chat.ChatActivity" />
 
     </application>
 </manifest>
