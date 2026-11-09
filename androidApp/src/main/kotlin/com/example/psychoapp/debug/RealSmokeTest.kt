@@ -13,7 +13,7 @@ private const val TAG = "RealSmokeTest"
 
 suspend fun runRealCompleteSmokeTest(context: Context) {
     Log.d(TAG, "=== Real smoke test started ===")
-    toast(context, "Запрос к OpenRouter...")
+    toast(context, "Запрос к ZubrIQ...")
 
     val messages = listOf(
         ChatMessage(role = ChatRole.USER, content = "Ответь одним коротким предложением: ты меня слышишь?")
