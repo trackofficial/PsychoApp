@@ -6,11 +6,14 @@ import android.widget.Button
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import com.example.psychoapp.ui.chat.ChatActivity
 import com.example.psychoapp.ui.notes.NotesActivity
 import com.example.psychoapp.R
+import com.example.psychoapp.debug.runRealCompleteSmokeTest
 import com.example.psychoapp.utils.SessionManager
 import com.example.psychoapp.ui.auth.LoginActivity
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +39,7 @@ class MainActivity : ComponentActivity() {
 
 //            lifecycleScope.launch {
 //                // * для проверки работы ИИ -> runRealCompleteSmokeTest(this@MainActivity)
+//                runRealCompleteSmokeTest(this@MainActivity)
 //                // * для проверки работы БД -> runChatHistorySmokeTest(this@MainActivity)
 //            }
         }
