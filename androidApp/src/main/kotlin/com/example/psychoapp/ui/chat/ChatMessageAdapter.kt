@@ -11,6 +11,9 @@ import com.example.psychoapp.R
 import com.example.psychoapp.shared.chat.ChatMessageUi
 import com.example.psychoapp.shared.chat.ChatStatus
 import com.example.psychoapp.shared.model.ChatRole
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
 class ChatMessageAdapter : ListAdapter<ChatMessageUi, ChatMessageAdapter.MessageViewHolder>(
     ChatMessageDiff
@@ -42,12 +45,20 @@ class ChatMessageAdapter : ListAdapter<ChatMessageUi, ChatMessageAdapter.Message
     }
 
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val message = getItem(position)
+
+        val instant = Instant.ofEpochMilli(message.timestamp)
+        val formattedDate = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm").withZone(ZoneId.systemDefault()).format(instant)
+        holder.messageDate?.text = formattedDate
+
+        holder.bind(message)
     }
 
     class MessageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val contentView = view.findViewById<TextView>(R.id.tvMessageContent)
-        private val statusView: TextView? = view.findViewById(R.id.tvMessageStatus)
+        private val statusView = view.findViewById<TextView?>(R.id.tvMessageStatus)
+        val messageDate: TextView? = view.findViewById<TextView>(R.id.message_date)
+        
 
         fun bind(message: ChatMessageUi) {
             contentView.text = message.content
