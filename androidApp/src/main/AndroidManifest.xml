@@ -24,10 +24,14 @@
             android:theme="@style/Theme.PsychoApp" />
         <activity android:name=".ui.main.MainActivity"
             android:theme="@style/Theme.PsychoApp"/>
-        <activity android:name=".ui.notes.AddNoteActivity" />
-        <activity android:name=".ui.notes.NotesActivity" />
-        <activity android:name=".ui.notes.EditNoteActivity" />
-        <activity android:name=".ui.chat.ChatActivity" />
+        <activity android:name=".ui.notes.AddNoteActivity"
+            android:theme="@style/Theme.PsychoApp"/>
+        <activity android:name=".ui.notes.NotesActivity"
+            android:theme="@style/Theme.PsychoApp"/>
+        <activity android:name=".ui.notes.EditNoteActivity"
+            android:theme="@style/Theme.PsychoApp"/>
+        <activity android:name=".ui.chat.ChatActivity"
+            android:theme="@style/Theme.PsychoApp"/>
 
     </application>
 </manifest>

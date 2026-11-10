@@ -41,7 +41,7 @@ class ChatActivity : ComponentActivity() {
     private lateinit var adapter: ChatMessageAdapter
     private lateinit var rvMessages: RecyclerView
     private lateinit var etMessageInput: EditText
-    private lateinit var btnSend: Button
+    private lateinit var btnSend: View
     private lateinit var tvError: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +81,6 @@ class ChatActivity : ComponentActivity() {
                         }
                     }
 
-                    btnSend.text = if (state.isStreaming) "Стоп" else "Отправить"
 
                     if (state.errorMessage != null) {
                         tvError.text = state.errorMessage

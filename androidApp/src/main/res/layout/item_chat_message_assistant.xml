@@ -11,27 +11,30 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:orientation="vertical"
-        android:maxWidth="300dp"
+        android:maxWidth="270dp"
         android:background="@drawable/bg_message_assistant"
-        android:paddingHorizontal="14dp"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="10dp">
 
         <TextView
+            android:maxWidth="250dp"
+            android:fontFamily="@font/geistmedium"
             android:id="@+id/tvMessageContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#1A1A1A"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:lineSpacingExtra="3sp"
             tools:text="Я рядом. Расскажи, что тебя беспокоит." />
 
         <TextView
+            android:fontFamily="@font/geistmedium"
             android:id="@+id/tvMessageStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textColor="#8A8A8A"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:visibility="gone"
             tools:text="…"
             tools:visibility="visible" />

@@ -34,9 +34,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingHorizontal="8dp"
-        android:paddingTop="8dp"
         android:paddingBottom="4dp"
-        android:background="#F5F5F5"
         android:gravity="center_vertical">
 
         <EditText
@@ -44,35 +42,43 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Напишите сообщение…"
+            android:hint="@string/writetext"
             android:inputType="textMultiLine|textCapSentences"
             android:maxLines="5"
+            android:fontFamily="@font/geistmedium"
             android:minLines="1"
             android:paddingHorizontal="12dp"
             android:paddingVertical="10dp"
-            android:background="@drawable/bg_input_field"
+            android:background="@drawable/round_block"
             android:textSize="15sp"
             android:textColor="#000000"
             android:textColorHint="#8A8A8A"/>
 
-        <Button
-            android:id="@+id/btnSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Отправить"
-            android:textAllCaps="false" />
+        <FrameLayout
+            android:background="@drawable/black_round_button_pre"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="5dp">
+            <View
+                android:id="@+id/btnSend"
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/icon_arch"/>
+        </FrameLayout>
     </LinearLayout>
 
     <TextView
+        android:fontFamily="@font/geistregular"
         android:id="@+id/tvDisclaimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F5F5F5"
+        android:background="@color/background_color"
         android:paddingHorizontal="16dp"
         android:paddingBottom="8dp"
         android:gravity="center"
-        android:text="Это не заменяет профессиональную психологическую помощь"
+        android:text="@string/warning"
         android:textColor="#8A8A8A"
-        android:textSize="11sp" />
+        android:textSize="9sp" />
 </LinearLayout>
