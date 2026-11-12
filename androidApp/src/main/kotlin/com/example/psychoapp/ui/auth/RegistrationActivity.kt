@@ -14,6 +14,18 @@ import com.example.psychoapp.data.local.users.UsersDbProvider
 import kotlinx.coroutines.launch
 
 class RegistrationActivity : ComponentActivity() {
+    // * валидация пароля
+    fun validatePassword(password: String): Boolean {
+        if (password.length < 4) {
+            Toast.makeText(this, "Пароль должен содержать минимум 4 символа", Toast.LENGTH_LONG).show ()
+
+            return false
+        }
+        else {
+            return true
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()
@@ -40,17 +52,20 @@ class RegistrationActivity : ComponentActivity() {
             }
             else {
                 val userManager = UserManager(db)
-                lifecycleScope.launch {
-                    val user = User(login = login, password = password)
-                    val isRegistered = userManager.registerUser(user)
 
-                    if (isRegistered) {
-                        Toast.makeText(this@RegistrationActivity, "Регистрация прошла успешно", Toast.LENGTH_LONG).show()
+                if (validatePassword(password)) {
+                    lifecycleScope.launch {
+                        val user = User(login = login, password = password)
+                        val isRegistered = userManager.registerUser(user)
 
-                        finish()
-                    }
-                    else {
-                        Toast.makeText(this@RegistrationActivity, "Логин занят", Toast.LENGTH_LONG).show()
+                        if (isRegistered) {
+                            Toast.makeText(this@RegistrationActivity, "Регистрация прошла успешно", Toast.LENGTH_LONG).show()
+
+                            finish()
+                        }
+                        else {
+                            Toast.makeText(this@RegistrationActivity, "Логин занят", Toast.LENGTH_LONG).show()
+                        }
                     }
                 }
             }
