@@ -15,9 +15,12 @@ import kotlinx.coroutines.launch
 
 class RegistrationActivity : ComponentActivity() {
     // * валидация пароля
-    fun validatePassword(password: String): Boolean {
+    fun validatePassword(password: String, userPassword: EditText, acceptUserPassword: EditText): Boolean {
         if (password.length < 4) {
             Toast.makeText(this, "Пароль должен содержать минимум 4 символа", Toast.LENGTH_LONG).show ()
+
+            userPassword.text.clear()
+            acceptUserPassword.text.clear()
 
             return false
         }
@@ -53,7 +56,7 @@ class RegistrationActivity : ComponentActivity() {
             else {
                 val userManager = UserManager(db)
 
-                if (validatePassword(password)) {
+                if (validatePassword(password, userPassword, acceptUserPassword)) {
                     lifecycleScope.launch {
                         val user = User(login = login, password = password)
                         val isRegistered = userManager.registerUser(user)
