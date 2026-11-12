@@ -1,5 +1,6 @@
 package com.example.psychoapp.ui.notes
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -22,6 +23,7 @@ class EditNoteActivity : ComponentActivity() {
         setContentView(R.layout.edit_note_activity)
 
         val db = NotesDbProvider.get(this)
+        val noteManager = NoteManager(db)
 
         val userLogin = SessionManager(this).userLogin ?: "unknown_user"
 
@@ -44,7 +46,6 @@ class EditNoteActivity : ComponentActivity() {
                 Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
             }
             else {
-                val noteManager = NoteManager(db)
                 lifecycleScope.launch {
                     val note = Note(
                         id = noteId,
@@ -52,15 +53,41 @@ class EditNoteActivity : ComponentActivity() {
                         body = newNoteText,
                         userLogin = userLogin
                     )
-                    val updatedNote = noteManager.updateNote(note)
 
+                    val updatedNote = noteManager.updateNote(note)
                     if (updatedNote) {
                         Toast.makeText(this@EditNoteActivity, "Заметка успешно изменена", Toast.LENGTH_LONG).show()
+
                         finish()
                     }
                     else {
                         Toast.makeText(this@EditNoteActivity, "Ошибка при изменении заметки", Toast.LENGTH_LONG).show()
                     }
+                }
+            }
+        }
+
+        val deleteNoteBtn = findViewById<Button>(R.id.btn_delete_note)
+        deleteNoteBtn.setOnClickListener {
+            val newNoteTitle = editNoteTitle.text.toString().trim()
+            val newNoteText = editNoteText.text.toString().trim()
+
+            lifecycleScope.launch {
+                val note = Note(
+                    id = noteId,
+                    title = newNoteTitle,
+                    body = newNoteText,
+                    userLogin = userLogin
+                )
+
+                val isDeleted = noteManager.deleteNote(note)
+                if (isDeleted) {
+                    Toast.makeText(this@EditNoteActivity, "Запись успешно удалена", Toast.LENGTH_LONG).show()
+
+                    finish()
+                }
+                else {
+                    Toast.makeText(this@EditNoteActivity, "Ошибка при удалении заметки", Toast.LENGTH_LONG).show()
                 }
             }
         }

@@ -9,16 +9,22 @@ class NoteManager(private val notesDB: NotesDb) {
     private val notesDao = notesDB.getNotesDao()
 
     // * добавление заметки в бд
-    suspend fun addNote(note: Note) : Boolean = withContext(Dispatchers.IO) {
+    suspend fun addNote(note: Note): Boolean = withContext(Dispatchers.IO) {
         val resId = notesDao.insert(note)
 
         return@withContext resId > 0
     }
 
     // * редактирование заметки
-    suspend fun updateNote(note: Note) : Boolean = withContext(Dispatchers.IO) {
+    suspend fun updateNote(note: Note): Boolean = withContext(Dispatchers.IO) {
         val editedNote = notesDao.update(note)
 
         return@withContext editedNote > 0
+    }
+
+    suspend fun deleteNote(note: Note): Boolean = withContext(Dispatchers.IO) {
+        val deletedNote = notesDao.delete(note)
+
+        return@withContext deletedNote > 0
     }
 }

@@ -13,6 +13,7 @@
     <string name="title">Заголовок заметки</string>
     <string name="descript">Введите текст заметки</string>
     <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
     <string name="rememberme">Запомнить меня</string>
     <string name="logout">Выйти</string>
     <string name="psycho">Psycho</string>

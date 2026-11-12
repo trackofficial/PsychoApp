@@ -37,22 +37,42 @@
             app:layout_constraintBottom_toTopOf="@+id/btn_save_note"
             android:background="@null" />
     </LinearLayout>
-    <Button
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:stateListAnimator="@null"
-        android:elevation="0dp"
-        android:layout_gravity="bottom"
-        android:textAllCaps="false"
+
+    <!-- * КНОПКИ -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/black_round_button"
-        android:text="@string/save"
-        android:id="@+id/btn_save_note"
-        android:textColor="@color/background_color"
-        android:fontFamily="@font/geistmedium"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <Button
+            android:id="@+id/btn_save_note"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/black_round_button"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/background_color"
+            android:fontFamily="@font/geistmedium"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"/>
+
+        <Button
+            android:id="@+id/btn_delete_note"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/red_round_button"
+            android:text="@string/delete"
+            android:textAllCaps="false"
+            android:textColor="@color/background_color"
+            android:fontFamily="@font/geistmedium"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"/>
+    </LinearLayout>
 
 </FrameLayout>

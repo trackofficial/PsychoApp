@@ -5,4 +5,5 @@
     <color name="black">#212121</color>
     <color name="black40">#66000000</color>
     <color name="fullblack">#0E0E0E</color>
+    <color name="red">#EF4444</color>
 </resources>

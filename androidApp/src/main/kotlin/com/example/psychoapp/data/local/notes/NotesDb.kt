@@ -37,5 +37,5 @@ interface NotesDao {
     suspend fun update(note: Note): Int
 
     @Delete
-    suspend fun delete(note: Note)
+    suspend fun delete(note: Note): Int
 }

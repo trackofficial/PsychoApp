@@ -12,6 +12,7 @@
     <string name="title">Note title</string>
     <string name="descript">the text of the note</string>
     <string name="save">Save</string>
+    <string name="delete">Delete</string>
     <string name="rememberme">Remember me</string>
     <string name="logout">Logout</string>
     <string name="aiopr">A digital assistant for psychological help in real time. It is designed to analyze difficult situations, answer questions about mental health and express diagnosis of the current emotional state.</string>
