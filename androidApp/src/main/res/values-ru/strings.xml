@@ -17,8 +17,52 @@
     <string name="rememberme">Запомнить меня</string>
     <string name="logout">Выйти</string>
     <string name="psycho">Psycho</string>
+    <string name="subtitle">Твоё безопасное пространство</string>
     <string name="warning">Это не заменяет профессиональную психологическую помощь</string>
     <string name="writetext">О чем сегодня поговорим...</string>
     <string name="aiopr">Цифровой помощник для психологической помощи в режиме реального времени. Предназначен для разбора сложных ситуаций, ответов на вопросы о ментальном здоровье и экспресс-диагностики текущего эмоционального состояния</string>
     <string name="noteopr">Все ваши мысли и важные заметки в одном месте. Фиксируйте идеи, структурируйте задачи, храните полезные материалы, систематизируйте внутренние переживания, отслеживайте ментальную динамику и выявляйте поведенческие паттерны на основе истории записей.</string>
+
+    <string name="ifyouneedhelp">Если нужна помощь</string>
+    <string name="helpsubtitle">Ты не обязан справляться со всем самостоятельно</string>
+
+    <string name="by">🇧🇾 БЕЛАРУСЬ</string>
+    <string name="byfasthelp">Экстренная психологическая помощь</string>
+    <string name="byfasthelpsubtitle">Круглосуточно · Бесплатно · Анонимно</string>
+    <string name="bychildrenhelpline">Республиканская детская телефонная линия</string>
+
+    <!-- Welcome -->
+    <string name="welcome_title">С чего начнём?</string>
+    <string name="welcome_description">Иногда достаточно просто остановиться и прислушаться к себе.</string>
+
+    <!-- Cards -->
+    <string name="notes_subtitle">Твои мысли, эмоции и моменты</string>
+    <string name="ai_subtitle">Разговор, в котором можно быть собой</string>
+
+    <!-- Belarus -->
+    <string name="phone_133">133</string>
+    <string name="phone_belarus_children">8-801-100-16-11</string>
+    <string name="violence_help">Помощь при домашнем насилии</string>
+    <string name="phone_violence">8-801-100-8-801</string>
+    <string name="violence_hours">Ежедневно · 08:00–20:00</string>
+
+    <!-- Russia -->
+    <string name="russia">🇷🇺 РОССИЯ</string>
+    <string name="mchs_name">МЧС России</string>
+    <string name="mchs_phone">8 (495) 989-50-50</string>
+    <string name="mchs_additional">Также: 8 (499) 216-50-50 · Круглосуточно</string>
+    <string name="crisis_line">Кризисная линия доверия</string>
+    <string name="crisis_phone">8-800-333-44-34</string>
+    <string name="trust_line">Единый телефон доверия</string>
+    <string name="trust_phone">8-800-100-49-94</string>
+    <string name="available_24h">Круглосуточно</string>
+    <string name="red_cross_name">Российский Красный Крест</string>
+    <string name="red_cross_phone">8-800-250-18-59</string>
+    <string name="red_cross_subtitle">Круглосуточно · Бесплатно · Анонимно</string>
+
+    <!-- European Union -->
+    <string name="european_union">🇪🇺 ЕВРОПЕЙСКИЙ СОЮЗ</string>
+    <string name="eu_support_name">Телефон эмоциональной поддержки</string>
+    <string name="eu_support_phone">116 123</string>
+    <string name="eu_support_availability">Доступность зависит от страны</string>
 </resources>

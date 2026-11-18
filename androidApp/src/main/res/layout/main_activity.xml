@@ -1,112 +1,671 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<!--📖-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:baselineAligned="false"
-        android:layout_marginTop="34dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-        <TextView
-            android:id="@+id/icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/black"
-            android:fontFamily="@font/coolvetica"
-            android:text="@string/psycho"
-            android:textSize="32sp"
-            android:includeFontPadding="false"/>
-
-        <Button
-            android:id="@+id/btn_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:background="@drawable/logout_button_bg"
-            android:stateListAnimator="@null"
-            android:elevation="0dp"
-            android:textAllCaps="false"
-            android:text="@string/logout"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            android:fontFamily="@font/geistmedium" />
-
-    </LinearLayout>
-
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:fillViewport="true"
+    android:scrollbars="vertical">
 
     <LinearLayout
-        android:id="@+id/yournotesbutton"
-        android:clickable="true"
-        android:layout_marginTop="40dp"
-        android:padding="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:orientation="vertical"
-        android:background="@drawable/round_block"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="✏️"
-            android:textSize="24dp"/>
-        <TextView
-            android:layout_marginTop="3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/yournotes"
-            android:textSize="20dp"
-            android:textColor="@color/fullblack"
-            android:fontFamily="@font/geistsemibold"/>
-        <TextView
+
+        <!-- Header -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/noteopr"
-            android:fontFamily="@font/geistmedium"
-            android:textSize="10dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/youraiassisbutton"
-        android:clickable="true"
-        android:layout_marginTop="12dp"
-        android:padding="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="vertical"
-        android:background="@drawable/round_block"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="📖"
-            android:textSize="24dp"/>
-        <TextView
-            android:layout_marginTop="3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/aiassist"
-            android:textSize="20dp"
-            android:textColor="@color/fullblack"
-            android:fontFamily="@font/geistsemibold"/>
-        <TextView
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="34dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/psycho"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/coolvetica"
+                    android:textSize="34sp"
+                    android:includeFontPadding="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/subtitle"
+                    android:textColor="#888888"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/geistmedium"
+                    android:layout_marginTop="3dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:background="@drawable/logout_button_bg"
+                android:stateListAnimator="@null"
+                android:elevation="0dp"
+                android:textAllCaps="false"
+                android:text="@string/logout"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:fontFamily="@font/geistmedium"/>
+
+        </LinearLayout>
+
+        <!-- Welcome block -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/aiopr"
-            android:fontFamily="@font/geistmedium"
-            android:textSize="10dp"/>
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="36dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_title"
+                android:textColor="@color/fullblack"
+                android:textSize="26sp"
+                android:fontFamily="@font/geistsemibold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_description"
+                android:textColor="#858585"
+                android:textSize="14sp"
+                android:fontFamily="@font/geistmedium"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="3dp"/>
+
+        </LinearLayout>
+
+        <!-- Notes card -->
+        <LinearLayout
+            android:id="@+id/yournotesbutton"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="26dp"
+            android:padding="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/round_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="✏️"
+                    android:textSize="24sp"
+                    android:background="#F2F2F2"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yournotes"
+                        android:textSize="18sp"
+                        android:textColor="@color/fullblack"
+                        android:fontFamily="@font/geistsemibold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notes_subtitle"
+                        android:textSize="11sp"
+                        android:textColor="#888888"
+                        android:fontFamily="@font/geistmedium"
+                        android:layout_marginTop="4dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/noteopr"
+                android:fontFamily="@font/geistmedium"
+                android:textSize="12sp"
+                android:textColor="#777777"
+                android:layout_marginTop="18dp"/>
+
+        </LinearLayout>
+
+        <!-- AI assistant card -->
+        <LinearLayout
+            android:id="@+id/youraiassisbutton"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="14dp"
+            android:padding="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/round_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="💬"
+                    android:textSize="24sp"
+                    android:background="#F2F2F2"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/aiassist"
+                        android:textSize="18sp"
+                        android:textColor="@color/fullblack"
+                        android:fontFamily="@font/geistsemibold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ai_subtitle"
+                        android:textSize="11sp"
+                        android:textColor="#888888"
+                        android:fontFamily="@font/geistmedium"
+                        android:layout_marginTop="4dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/aiopr"
+                android:fontFamily="@font/geistmedium"
+                android:textSize="12sp"
+                android:textColor="#777777"
+                android:layout_marginTop="18dp"/>
+
+        </LinearLayout>
+
+        <!-- Psychological support -->
+        <LinearLayout
+            android:id="@+id/support_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="24dp">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ifyouneedhelp"
+                        android:textColor="@color/fullblack"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/geistsemibold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/helpsubtitle"
+                        android:textColor="#888888"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/geistmedium"
+                        android:layout_marginTop="4dp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="♡"
+                    android:textSize="24sp"
+                    android:textColor="#7D9EAD"/>
+
+            </LinearLayout>
+
+            <!-- Belarus -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/round_block"
+                android:padding="16dp"
+                android:layout_marginTop="14dp">
+
+                <!-- Country -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/by"
+                    android:textColor="#66899B"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/geistsemibold"
+                    android:layout_marginBottom="4dp"/>
+
+                <!-- 133 -->
+                <LinearLayout
+                    android:id="@+id/support_133"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/byfasthelp"
+                        android:textColor="@color/fullblack"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/geistmedium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone_133"
+                        android:textColor="#66899B"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/geistsemibold"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/byfasthelpsubtitle"
+                        android:textColor="#888888"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/geistmedium"
+                        android:layout_marginTop="3dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"/>
+
+                <!-- Child line -->
+                <LinearLayout
+                    android:id="@+id/support_child"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bychildrenhelpline"
+                        android:textColor="@color/fullblack"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/geistmedium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone_belarus_children"
+                        android:textColor="#66899B"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/geistsemibold"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/byfasthelpsubtitle"
+                        android:textColor="#888888"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/geistmedium"
+                        android:layout_marginTop="3dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"/>
+
+                <!-- Violence support -->
+                <LinearLayout
+                    android:id="@+id/support_violence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/violence_help"
+                        android:textColor="@color/fullblack"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/geistmedium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone_violence"
+                        android:textColor="#66899B"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/geistsemibold"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/violence_hours"
+                        android:textColor="#888888"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/geistmedium"
+                        android:layout_marginTop="3dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Russia -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/round_block"
+                android:padding="16dp"
+                android:layout_marginTop="14dp">
+
+                <!-- Country -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/russia"
+                    android:textColor="#66899B"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/geistsemibold"
+                    android:layout_marginBottom="4dp"/>
+
+                <!-- EMERCOM -->
+                <LinearLayout
+                    android:id="@+id/support_mchs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mchs_name"
+                        android:textColor="@color/fullblack"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/geistmedium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mchs_phone"
+                        android:textColor="#66899B"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/geistsemibold"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mchs_additional"
+                        android:textColor="#888888"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/geistmedium"
+                        android:layout_marginTop="3dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"/>
+
+                <!-- Crisis line -->
+                <LinearLayout
+                    android:id="@+id/support_russia1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/crisis_line"
+                        android:textColor="@color/fullblack"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/geistmedium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/crisis_phone"
+                        android:textColor="#66899B"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/geistsemibold"
+                        android:layout_marginTop="4dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"/>
+
+                <!-- Trust line -->
+                <LinearLayout
+                    android:id="@+id/support_russia2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trust_line"
+                        android:textColor="@color/fullblack"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/geistmedium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trust_phone"
+                        android:textColor="#66899B"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/geistsemibold"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/available_24h"
+                        android:textColor="#888888"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/geistmedium"
+                        android:layout_marginTop="3dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE"/>
+
+                <!-- Red Cross -->
+                <LinearLayout
+                    android:id="@+id/support_redcross"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/red_cross_name"
+                        android:textColor="@color/fullblack"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/geistmedium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/red_cross_phone"
+                        android:textColor="#66899B"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/geistsemibold"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/red_cross_subtitle"
+                        android:textColor="#888888"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/geistmedium"
+                        android:layout_marginTop="3dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- European Union -->
+            <LinearLayout
+                android:id="@+id/support_eu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/round_block"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/european_union"
+                    android:textColor="#66899B"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/geistsemibold"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eu_support_name"
+                    android:textColor="@color/fullblack"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/geistmedium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eu_support_phone"
+                    android:textColor="#66899B"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/geistsemibold"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eu_support_availability"
+                    android:textColor="#888888"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/geistmedium"
+                    android:layout_marginTop="3dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
+
+</ScrollView>
