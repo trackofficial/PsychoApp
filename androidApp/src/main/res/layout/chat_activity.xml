@@ -55,7 +55,7 @@
             android:textColorHint="#8A8A8A"/>
 
         <FrameLayout
-            android:background="@drawable/black_round_button_pre"
+            android:background="@drawable/blue_round_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="bottom|end"

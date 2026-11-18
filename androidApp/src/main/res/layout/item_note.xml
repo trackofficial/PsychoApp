@@ -3,49 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="14dp"
-    android:layout_marginRight="18dp"
-    android:layout_marginLeft="18dp"
+    android:padding="16dp"
+    android:layout_marginStart="18dp"
+    android:layout_marginEnd="18dp"
     android:layout_marginTop="10dp"
-    android:background="@drawable/round_block"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/note_card"
     android:clickable="true"
     android:focusable="true">
 
+    <!-- Title -->
     <TextView
-        android:fontFamily="@font/geistsemibold"
         android:id="@+id/note_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Title"
-        android:clickable="true"
-        android:textSize="18sp"
+        android:fontFamily="@font/geistsemibold"
+        android:textSize="17sp"
         android:textColor="@color/fullblack"
         android:maxLines="1"
         android:ellipsize="end" />
 
+    <!-- Description -->
     <TextView
-        android:fontFamily="@font/geistmedium"
         android:id="@+id/note_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="description"
-        android:textSize="12dp"
+        android:layout_marginTop="5dp"
+        android:text="Description"
+        android:fontFamily="@font/geistmedium"
+        android:textSize="13sp"
         android:textColor="@color/black40"
+        android:lineSpacingExtra="2dp"
         android:maxLines="3"
         android:ellipsize="end" />
 
+    <!-- Date -->
     <TextView
         android:id="@+id/note_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:text="01.01.2025 12:00"
         android:fontFamily="@font/geistsemibold"
-        android:textSize="10sp"
-        android:textColor="#5C5A5A" />
+        android:textSize="11sp"
+        android:textColor="#9AA8B8" />
 
 </LinearLayout>
