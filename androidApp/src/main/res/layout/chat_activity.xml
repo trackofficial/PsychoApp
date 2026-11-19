@@ -7,35 +7,43 @@
     android:background="#FFFFFF"
     android:fitsSystemWindows="true">
 
+    <!-- Error message -->
     <TextView
         android:id="@+id/tvError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
-        android:background="#FFEBEE"
-        android:textColor="#B71C1C"
+        android:background="#FFF1F1"
+        android:textColor="#B54747"
         android:textSize="14sp"
+        android:fontFamily="@font/geistmedium"
         android:visibility="gone"
         tools:text="Нет соединения с интернетом"
         tools:visibility="visible" />
 
+    <!-- Messages -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMessages"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:clipToPadding="false"
-        android:paddingVertical="8dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:scrollbars="vertical"
         tools:listitem="@layout/item_chat_message_assistant" />
 
+    <!-- Input area -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingHorizontal="8dp"
-        android:paddingBottom="4dp"
-        android:gravity="center_vertical">
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="6dp"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF">
 
         <EditText
             android:id="@+id/etMessageInput"
@@ -45,40 +53,51 @@
             android:hint="@string/writetext"
             android:inputType="textMultiLine|textCapSentences"
             android:maxLines="5"
-            android:fontFamily="@font/geistmedium"
             android:minLines="1"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="10dp"
-            android:background="@drawable/round_block"
+            android:fontFamily="@font/geistmedium"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            android:background="@drawable/bg_input_field"
             android:textSize="15sp"
-            android:textColor="#000000"
-            android:textColorHint="#8A8A8A"/>
+            android:textColor="#263445"
+            android:textColorHint="#8291A3" />
 
+        <!-- Send button -->
         <FrameLayout
-            android:background="@drawable/blue_round_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="5dp">
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/chat_send_button">
+
             <View
                 android:id="@+id/btnSend"
-                android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/icon_arch"/>
+                android:layout_margin="11dp"
+                android:background="@drawable/icon_arch"
+                android:clickable="true"
+                android:focusable="true" />
+
         </FrameLayout>
+
     </LinearLayout>
 
+    <!-- Disclaimer -->
     <TextView
-        android:fontFamily="@font/geistregular"
         android:id="@+id/tvDisclaimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_color"
-        android:paddingHorizontal="16dp"
-        android:paddingBottom="8dp"
+        android:background="#FFFFFF"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="9dp"
         android:gravity="center"
+        android:fontFamily="@font/geistregular"
         android:text="@string/warning"
-        android:textColor="#8A8A8A"
-        android:textSize="9sp" />
+        android:textColor="#8291A3"
+        android:textSize="10sp" />
+
 </LinearLayout>

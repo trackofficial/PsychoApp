@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="12dp"
-    android:paddingVertical="4dp">
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -13,39 +15,44 @@
         android:orientation="vertical"
         android:maxWidth="270dp"
         android:background="@drawable/bg_message_assistant"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="10dp">
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:paddingTop="11dp"
+        android:paddingBottom="9dp">
 
         <TextView
-            android:maxWidth="250dp"
-            android:fontFamily="@font/geistmedium"
             android:id="@+id/tvMessageContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#1A1A1A"
-            android:textSize="13sp"
-            android:lineSpacingExtra="3sp"
+            android:maxWidth="250dp"
+            android:fontFamily="@font/geistmedium"
+            android:textColor="#263445"
+            android:textSize="14sp"
+            android:lineSpacingExtra="3dp"
             tools:text="Я рядом. Расскажи, что тебя беспокоит." />
 
         <TextView
-            android:fontFamily="@font/geistmedium"
             android:id="@+id/tvMessageStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="#8A8A8A"
-            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/geistmedium"
+            android:textColor="#8291A3"
+            android:textSize="13sp"
             android:visibility="gone"
             tools:text="…"
             tools:visibility="visible" />
+
         <TextView
             android:id="@+id/message_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="01.01.2025 12:00"
             android:fontFamily="@font/geistsemibold"
+            android:text="01.01.2025 12:00"
             android:textSize="10sp"
-            android:textColor="#5C5A5A" />
+            android:textColor="#8291A3" />
+
     </LinearLayout>
+
 </FrameLayout>

@@ -1,78 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@android:color/white"
+    android:padding="20dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <!-- Note title -->
         <EditText
-            android:layout_marginTop="34dp"
-            android:textColor="@color/fullblack"
             android:id="@+id/edit_note_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/title"
-            android:textSize="21sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/geistsemibold"
-            android:inputType="textMultiLine"
-            android:background="@null" />
-        <EditText
-            android:textColor="@color/fullblack"
-            android:fontFamily="@font/geistmedium"
-            android:id="@+id/edit_note_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="16dp"
-            android:layout_marginBottom="16dp"
-            android:hint="@string/descript"
+            android:layout_marginTop="34dp"
+            android:hint="@string/title"
+            android:textColor="@color/fullblack"
+            android:textColorHint="#A0ACBA"
+            android:textSize="22sp"
+            android:fontFamily="@font/geistsemibold"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="3"
             android:gravity="top|start"
-            android:inputType="textMultiLine"
-            app:layout_constraintBottom_toTopOf="@+id/btn_save_note"
-            android:background="@null" />
-    </LinearLayout>
+            android:background="@null"
+            android:padding="0dp" />
 
-    <!-- * КНОПКИ -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
-
-        <Button
-            android:id="@+id/btn_save_note"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
+        <!-- Note text -->
+        <EditText
+            android:id="@+id/edit_note_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/black_round_button"
-            android:text="@string/save"
-            android:textAllCaps="false"
-            android:textColor="@color/background_color"
+            android:layout_marginTop="18dp"
+            android:hint="@string/descript"
+            android:textColor="@color/fullblack"
+            android:textColorHint="#A0ACBA"
             android:fontFamily="@font/geistmedium"
-            android:stateListAnimator="@null"
-            android:elevation="0dp"/>
+            android:textSize="16sp"
+            android:gravity="top|start"
+            android:inputType="textMultiLine|textCapSentences"
+            android:background="@null"
+            android:padding="0dp"
+            android:lineSpacingExtra="4dp" />
 
-        <Button
-            android:id="@+id/btn_delete_note"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/red_round_button"
-            android:text="@string/delete"
-            android:textAllCaps="false"
-            android:textColor="@color/background_color"
-            android:fontFamily="@font/geistmedium"
-            android:stateListAnimator="@null"
-            android:elevation="0dp"/>
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:baselineAligned="false"
+            android:layout_marginBottom="12dp">
+
+            <!-- Save -->
+            <Button
+                android:id="@+id/btn_save_note"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="@string/save"
+                android:textColor="@color/fullblack"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:fontFamily="@font/geistsemibold"
+                android:background="@drawable/blue_round_button"
+                android:elevation="0dp"
+                android:stateListAnimator="@null"
+                android:gravity="center" />
+
+            <!-- Delete -->
+            <Button
+                android:id="@+id/btn_delete_note"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="@string/delete"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:fontFamily="@font/geistsemibold"
+                android:background="@drawable/red_round_button"
+                android:elevation="0dp"
+                android:stateListAnimator="@null"
+                android:gravity="center" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </FrameLayout>
