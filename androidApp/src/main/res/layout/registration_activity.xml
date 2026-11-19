@@ -7,11 +7,11 @@
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="#263445"
         android:fontFamily="@font/coolvetica"
         android:text="Psycho"
-        android:textSize="32dp"
-        android:layout_marginLeft="20dp"
+        android:textSize="32sp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="34dp"/>
     <LinearLayout
         android:layout_marginBottom="24dp"
@@ -76,7 +76,7 @@
         android:layout_marginRight="60dp"
         android:layout_marginLeft="60dp"
         android:layout_height="60dp"
-        android:background="@drawable/black_round_button"
+        android:background="@drawable/blue2_round_button"
         android:text="@string/signed_in"
         android:id="@+id/reg_btn"
         android:textColor="@color/background_color"

@@ -7,11 +7,11 @@
             android:id="@+id/icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="#263445"
             android:fontFamily="@font/coolvetica"
             android:text="Psycho"
-            android:textSize="32dp"
-            android:layout_marginLeft="20dp"
+            android:textSize="32sp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="34dp"/>
         <LinearLayout
             android:layout_marginBottom="24dp"
@@ -78,7 +78,7 @@
                 android:textAllCaps="false"
                 android:id="@+id/btn_go_to_reg"
                 android:layout_width="wrap_content"
-                android:layout_height="18dp"
+                android:layout_height="22dp"
                 android:text="@string/signed_in"
                 android:stateListAnimator="@null"
                 android:textSize="12sp" />
@@ -94,7 +94,7 @@
             android:layout_marginRight="60dp"
             android:layout_marginLeft="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/black_round_button"
+            android:background="@drawable/blue2_round_button"
             android:text="@string/login_for_button"
             android:id="@+id/login_btn"
             android:textColor="@color/background_color"
