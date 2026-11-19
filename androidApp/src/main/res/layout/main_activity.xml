@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="#FFFFFF"
     android:fillViewport="true"
     android:scrollbars="vertical">
 
@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/psycho"
-                    android:textColor="@color/black"
+                    android:textColor="#263445"
                     android:fontFamily="@font/coolvetica"
                     android:textSize="34sp"
                     android:includeFontPadding="false"/>
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/subtitle"
-                    android:textColor="#888888"
+                    android:textColor="#8291A3"
                     android:textSize="12sp"
                     android:fontFamily="@font/geistmedium"
                     android:layout_marginTop="3dp"/>
@@ -63,7 +63,7 @@
                 android:elevation="0dp"
                 android:textAllCaps="false"
                 android:text="@string/logout"
-                android:textColor="@color/black"
+                android:textColor="#263445"
                 android:textSize="12sp"
                 android:fontFamily="@font/geistmedium"/>
 
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/welcome_title"
-                android:textColor="@color/fullblack"
+                android:textColor="#263445"
                 android:textSize="26sp"
                 android:fontFamily="@font/geistsemibold"/>
 
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/welcome_description"
-                android:textColor="#858585"
+                android:textColor="#8291A3"
                 android:textSize="14sp"
                 android:fontFamily="@font/geistmedium"
                 android:layout_marginTop="8dp"
@@ -124,7 +124,7 @@
                     android:gravity="center"
                     android:text="✏️"
                     android:textSize="24sp"
-                    android:background="#F2F2F2"/>
+                    android:background="#D9EBFC"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -138,7 +138,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/yournotes"
                         android:textSize="18sp"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:fontFamily="@font/geistsemibold"/>
 
                     <TextView
@@ -146,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/notes_subtitle"
                         android:textSize="11sp"
-                        android:textColor="#888888"
+                        android:textColor="#8291A3"
                         android:fontFamily="@font/geistmedium"
                         android:layout_marginTop="4dp"/>
 
@@ -160,7 +160,7 @@
                 android:text="@string/noteopr"
                 android:fontFamily="@font/geistmedium"
                 android:textSize="12sp"
-                android:textColor="#777777"
+                android:textColor="#8291A3"
                 android:layout_marginTop="18dp"/>
 
         </LinearLayout>
@@ -191,7 +191,7 @@
                     android:gravity="center"
                     android:text="💬"
                     android:textSize="24sp"
-                    android:background="#F2F2F2"/>
+                    android:background="#D9EBFC"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -205,7 +205,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/aiassist"
                         android:textSize="18sp"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:fontFamily="@font/geistsemibold"/>
 
                     <TextView
@@ -213,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/ai_subtitle"
                         android:textSize="11sp"
-                        android:textColor="#888888"
+                        android:textColor="#8291A3"
                         android:fontFamily="@font/geistmedium"
                         android:layout_marginTop="4dp"/>
 
@@ -227,7 +227,7 @@
                 android:text="@string/aiopr"
                 android:fontFamily="@font/geistmedium"
                 android:textSize="12sp"
-                android:textColor="#777777"
+                android:textColor="#8291A3"
                 android:layout_marginTop="18dp"/>
 
         </LinearLayout>
@@ -260,7 +260,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ifyouneedhelp"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:textSize="20sp"
                         android:fontFamily="@font/geistsemibold"/>
 
@@ -268,7 +268,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/helpsubtitle"
-                        android:textColor="#888888"
+                        android:textColor="#8291A3"
                         android:textSize="11sp"
                         android:fontFamily="@font/geistmedium"
                         android:layout_marginTop="4dp"/>
@@ -280,7 +280,7 @@
                     android:layout_height="wrap_content"
                     android:text="♡"
                     android:textSize="24sp"
-                    android:textColor="#7D9EAD"/>
+                    android:textColor="#347FC4"/>
 
             </LinearLayout>
 
@@ -298,7 +298,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/by"
-                    android:textColor="#66899B"
+                    android:textColor="#347FC4"
                     android:textSize="11sp"
                     android:fontFamily="@font/geistsemibold"
                     android:layout_marginBottom="4dp"/>
@@ -318,7 +318,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/byfasthelp"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:textSize="13sp"
                         android:fontFamily="@font/geistmedium"/>
 
@@ -326,7 +326,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/phone_133"
-                        android:textColor="#66899B"
+                        android:textColor="#347FC4"
                         android:textSize="20sp"
                         android:fontFamily="@font/geistsemibold"
                         android:layout_marginTop="4dp"/>
@@ -335,7 +335,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/byfasthelpsubtitle"
-                        android:textColor="#888888"
+                        android:textColor="#8291A3"
                         android:textSize="10sp"
                         android:fontFamily="@font/geistmedium"
                         android:layout_marginTop="3dp"/>
@@ -345,7 +345,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#EEEEEE"/>
+                    android:background="#E6EEF6"/>
 
                 <!-- Child line -->
                 <LinearLayout
@@ -362,7 +362,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/bychildrenhelpline"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:textSize="13sp"
                         android:fontFamily="@font/geistmedium"/>
 
@@ -370,7 +370,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/phone_belarus_children"
-                        android:textColor="#66899B"
+                        android:textColor="#347FC4"
                         android:textSize="16sp"
                         android:fontFamily="@font/geistsemibold"
                         android:layout_marginTop="4dp"/>
@@ -379,7 +379,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/byfasthelpsubtitle"
-                        android:textColor="#888888"
+                        android:textColor="#8291A3"
                         android:textSize="10sp"
                         android:fontFamily="@font/geistmedium"
                         android:layout_marginTop="3dp"/>
@@ -389,7 +389,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#EEEEEE"/>
+                    android:background="#E6EEF6"/>
 
                 <!-- Violence support -->
                 <LinearLayout
@@ -406,7 +406,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/violence_help"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:textSize="13sp"
                         android:fontFamily="@font/geistmedium"/>
 
@@ -414,7 +414,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/phone_violence"
-                        android:textColor="#66899B"
+                        android:textColor="#347FC4"
                         android:textSize="16sp"
                         android:fontFamily="@font/geistsemibold"
                         android:layout_marginTop="4dp"/>
@@ -423,7 +423,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/violence_hours"
-                        android:textColor="#888888"
+                        android:textColor="#8291A3"
                         android:textSize="10sp"
                         android:fontFamily="@font/geistmedium"
                         android:layout_marginTop="3dp"/>
@@ -446,7 +446,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/russia"
-                    android:textColor="#66899B"
+                    android:textColor="#347FC4"
                     android:textSize="11sp"
                     android:fontFamily="@font/geistsemibold"
                     android:layout_marginBottom="4dp"/>
@@ -466,7 +466,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/mchs_name"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:textSize="13sp"
                         android:fontFamily="@font/geistmedium"/>
 
@@ -474,7 +474,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/mchs_phone"
-                        android:textColor="#66899B"
+                        android:textColor="#347FC4"
                         android:textSize="16sp"
                         android:fontFamily="@font/geistsemibold"
                         android:layout_marginTop="4dp"/>
@@ -483,7 +483,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/mchs_additional"
-                        android:textColor="#888888"
+                        android:textColor="#8291A3"
                         android:textSize="10sp"
                         android:fontFamily="@font/geistmedium"
                         android:layout_marginTop="3dp"/>
@@ -493,7 +493,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#EEEEEE"/>
+                    android:background="#E6EEF6"/>
 
                 <!-- Crisis line -->
                 <LinearLayout
@@ -510,7 +510,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/crisis_line"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:textSize="13sp"
                         android:fontFamily="@font/geistmedium"/>
 
@@ -518,7 +518,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/crisis_phone"
-                        android:textColor="#66899B"
+                        android:textColor="#347FC4"
                         android:textSize="16sp"
                         android:fontFamily="@font/geistsemibold"
                         android:layout_marginTop="4dp"/>
@@ -528,7 +528,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#EEEEEE"/>
+                    android:background="#E6EEF6"/>
 
                 <!-- Trust line -->
                 <LinearLayout
@@ -545,7 +545,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/trust_line"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:textSize="13sp"
                         android:fontFamily="@font/geistmedium"/>
 
@@ -553,7 +553,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/trust_phone"
-                        android:textColor="#66899B"
+                        android:textColor="#347FC4"
                         android:textSize="16sp"
                         android:fontFamily="@font/geistsemibold"
                         android:layout_marginTop="4dp"/>
@@ -562,7 +562,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/available_24h"
-                        android:textColor="#888888"
+                        android:textColor="#8291A3"
                         android:textSize="10sp"
                         android:fontFamily="@font/geistmedium"
                         android:layout_marginTop="3dp"/>
@@ -572,7 +572,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#EEEEEE"/>
+                    android:background="#E6EEF6"/>
 
                 <!-- Red Cross -->
                 <LinearLayout
@@ -589,7 +589,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/red_cross_name"
-                        android:textColor="@color/fullblack"
+                        android:textColor="#263445"
                         android:textSize="13sp"
                         android:fontFamily="@font/geistmedium"/>
 
@@ -597,7 +597,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/red_cross_phone"
-                        android:textColor="#66899B"
+                        android:textColor="#347FC4"
                         android:textSize="16sp"
                         android:fontFamily="@font/geistsemibold"
                         android:layout_marginTop="4dp"/>
@@ -606,7 +606,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/red_cross_subtitle"
-                        android:textColor="#888888"
+                        android:textColor="#8291A3"
                         android:textSize="10sp"
                         android:fontFamily="@font/geistmedium"
                         android:layout_marginTop="3dp"/>
@@ -631,7 +631,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/european_union"
-                    android:textColor="#66899B"
+                    android:textColor="#347FC4"
                     android:textSize="11sp"
                     android:fontFamily="@font/geistsemibold"
                     android:layout_marginBottom="8dp"/>
@@ -640,7 +640,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/eu_support_name"
-                    android:textColor="@color/fullblack"
+                    android:textColor="#263445"
                     android:textSize="13sp"
                     android:fontFamily="@font/geistmedium"/>
 
@@ -648,7 +648,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/eu_support_phone"
-                    android:textColor="#66899B"
+                    android:textColor="#347FC4"
                     android:textSize="20sp"
                     android:fontFamily="@font/geistsemibold"
                     android:layout_marginTop="4dp"/>
@@ -657,7 +657,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/eu_support_availability"
-                    android:textColor="#888888"
+                    android:textColor="#8291A3"
                     android:textSize="10sp"
                     android:fontFamily="@font/geistmedium"
                     android:layout_marginTop="3dp"/>
