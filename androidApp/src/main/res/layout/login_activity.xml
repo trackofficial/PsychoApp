@@ -9,7 +9,7 @@
             android:layout_height="wrap_content"
             android:textColor="#263445"
             android:fontFamily="@font/coolvetica"
-            android:text="Psycho"
+            android:text="@string/psycho"
             android:textSize="32sp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="34dp"/>
