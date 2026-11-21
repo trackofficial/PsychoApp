@@ -5,7 +5,7 @@
         <item name="postSplashScreenTheme">@style/Theme.PsychoApp</item>
     </style>
 
-    <style name="Theme.PsychoApp" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.PsychoApp" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:statusBarColor">@color/fullblack</item>
         <item name="android:navigationBarColor">@color/fullblack</item>
         <item name="windowActionBar">false</item>
