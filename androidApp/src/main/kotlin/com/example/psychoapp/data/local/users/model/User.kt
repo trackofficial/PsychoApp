@@ -1,4 +1,4 @@
-package com.example.psychoapp.data.local.users
+package com.example.psychoapp.data.local.users.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,13 +1,13 @@
 package com.example.psychoapp.utils
 
-import com.example.psychoapp.data.local.users.User
-import com.example.psychoapp.data.local.users.UsersDb
+import com.example.psychoapp.data.local.AppDb
+import com.example.psychoapp.data.local.users.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.security.MessageDigest
 
-class UserManager(private val usersDb: UsersDb) {
-    private val usersDao = usersDb.getUsersDao()
+class UserManager(db: AppDb) {
+    private val usersDao = db.usersDao()
 
     // * хеширование пароля (самый простой способ)
     fun hashPassword(password: String) : String {

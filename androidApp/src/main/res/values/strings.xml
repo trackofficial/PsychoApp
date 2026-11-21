@@ -5,7 +5,7 @@
     <string name="accept_password">prove your password</string>
     <string name="reg">reg</string>
     <string name="register">register</string>
-    <string name="signed_in">Sign In</string>
+    <string name="signed_in">Sign Up</string>
     <string name="login_for_button">Log In</string>
     <string name="yournotes">Your Notes</string>
     <string name="aiassist">Your AI Assistant</string>
@@ -31,37 +31,37 @@
     <string name="bychildrenhelpline">Republican Children\'s Telephone Line</string>
 
     <!-- Welcome -->
-    <string name="welcome_title">С чего начнём?</string>
-    <string name="welcome_description">Иногда достаточно просто остановиться и прислушаться к себе.</string>
+    <string name="welcome_title">Where should we start?</string>
+    <string name="welcome_description">Sometimes it is enough to simply stop and listen to yourself.</string>
 
     <!-- Cards -->
-    <string name="notes_subtitle">Твои мысли, эмоции и моменты</string>
-    <string name="ai_subtitle">Разговор, в котором можно быть собой</string>
+    <string name="notes_subtitle">Your thoughts, emotions, and moments</string>
+    <string name="ai_subtitle">A conversation where you can be yourself</string>
 
     <!-- Belarus -->
     <string name="phone_133">133</string>
     <string name="phone_belarus_children">8-801-100-16-11</string>
-    <string name="violence_help">Помощь при домашнем насилии</string>
+    <string name="violence_help">Domestic violence support</string>
     <string name="phone_violence">8-801-100-8-801</string>
-    <string name="violence_hours">Ежедневно · 08:00–20:00</string>
+    <string name="violence_hours">Daily · 08:00–20:00</string>
 
     <!-- Russia -->
-    <string name="russia">🇷🇺 РОССИЯ</string>
-    <string name="mchs_name">МЧС России</string>
+    <string name="russia">🇷🇺 RUSSIA</string>
+    <string name="mchs_name">EMERCOM of Russia</string>
     <string name="mchs_phone">8 (495) 989-50-50</string>
-    <string name="mchs_additional">Также: 8 (499) 216-50-50 · Круглосуточно</string>
-    <string name="crisis_line">Кризисная линия доверия</string>
+    <string name="mchs_additional">Also: 8 (499) 216-50-50 · 24/7</string>
+    <string name="crisis_line">Crisis helpline</string>
     <string name="crisis_phone">8-800-333-44-34</string>
-    <string name="trust_line">Единый телефон доверия</string>
+    <string name="trust_line">Unified helpline</string>
     <string name="trust_phone">8-800-100-49-94</string>
-    <string name="available_24h">Круглосуточно</string>
-    <string name="red_cross_name">Российский Красный Крест</string>
+    <string name="available_24h">24/7</string>
+    <string name="red_cross_name">Russian Red Cross</string>
     <string name="red_cross_phone">8-800-250-18-59</string>
-    <string name="red_cross_subtitle">Круглосуточно · Бесплатно · Анонимно</string>
+    <string name="red_cross_subtitle">24/7 · Free · Anonymous</string>
 
     <!-- European Union -->
-    <string name="european_union">🇪🇺 ЕВРОПЕЙСКИЙ СОЮЗ</string>
-    <string name="eu_support_name">Телефон эмоциональной поддержки</string>
+    <string name="european_union">🇪🇺 EUROPEAN UNION</string>
+    <string name="eu_support_name">Emotional support helpline</string>
     <string name="eu_support_phone">116 123</string>
-    <string name="eu_support_availability">Доступность зависит от страны</string>
+    <string name="eu_support_availability">Availability depends on the country</string>
 </resources>

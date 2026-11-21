@@ -1,5 +1,6 @@
 package com.example.psychoapp.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -8,9 +9,11 @@ import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.example.psychoapp.R
-import com.example.psychoapp.data.local.users.User
+import com.example.psychoapp.data.local.AppDbProvider
+import com.example.psychoapp.data.local.users.model.User
+import com.example.psychoapp.ui.main.MainActivity
+import com.example.psychoapp.utils.SessionManager
 import com.example.psychoapp.utils.UserManager
-import com.example.psychoapp.data.local.users.UsersDbProvider
 import kotlinx.coroutines.launch
 
 class RegistrationActivity : ComponentActivity() {
@@ -35,7 +38,9 @@ class RegistrationActivity : ComponentActivity() {
 
         setContentView(R.layout.registration_activity)
 
-        val db = UsersDbProvider.get(this)
+        val db = AppDbProvider.getDb(this)
+        val userManager = UserManager(db)
+        val session = SessionManager(this)
 
         val userLogin = findViewById<EditText>(R.id.login_space)
         val userPassword = findViewById<EditText>(R.id.password_space)
@@ -54,17 +59,17 @@ class RegistrationActivity : ComponentActivity() {
                 Toast.makeText(this, "Пароли должны совпадать", Toast.LENGTH_LONG).show()
             }
             else {
-                val userManager = UserManager(db)
-
                 if (validatePassword(password, userPassword, acceptUserPassword)) {
                     lifecycleScope.launch {
                         val user = User(login = login, password = password)
                         val isRegistered = userManager.registerUser(user)
 
                         if (isRegistered) {
-                            Toast.makeText(this@RegistrationActivity, "Регистрация прошла успешно", Toast.LENGTH_LONG).show()
+                            session.saveSession(login)
 
-                            finish()
+                            val intent = Intent(this@RegistrationActivity, MainActivity::class.java)
+                            intent.putExtra("USER_LOGIN", user.login) // * передача логина юзера ТОЛЬКО в MainActivity
+                            startActivity(intent)
                         }
                         else {
                             Toast.makeText(this@RegistrationActivity, "Логин занят", Toast.LENGTH_LONG).show()

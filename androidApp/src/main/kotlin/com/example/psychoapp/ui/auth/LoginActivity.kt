@@ -11,10 +11,10 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.example.psychoapp.ui.main.MainActivity
 import com.example.psychoapp.R
+import com.example.psychoapp.data.local.AppDbProvider
 import com.example.psychoapp.utils.SessionManager
-import com.example.psychoapp.data.local.users.User
+import com.example.psychoapp.data.local.users.model.User
 import com.example.psychoapp.utils.UserManager
-import com.example.psychoapp.data.local.users.UsersDbProvider
 import kotlinx.coroutines.launch
 
 class LoginActivity : ComponentActivity() {
@@ -22,9 +22,10 @@ class LoginActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()
 
-        val db = UsersDbProvider.get(this)
-
+        val db = AppDbProvider.getDb(this)
+        val userManager = UserManager(db)
         val session = SessionManager(this)
+
         if (session.isLoggedIn) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -42,7 +43,6 @@ class LoginActivity : ComponentActivity() {
 
         val userLogin = findViewById<EditText>(R.id.login_space)
         val userPassword = findViewById<EditText>(R.id.password_space)
-        val rememberMe = findViewById<CheckBox>(R.id.cb_remember_me)
 
         val loginBtn: Button = findViewById(R.id.login_btn)
         loginBtn.setOnClickListener {
@@ -53,19 +53,13 @@ class LoginActivity : ComponentActivity() {
                 Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
             }
             else {
-                val userManager = UserManager(db)
-
                 val user = User(login = login, password = password)
 
                 lifecycleScope.launch {
                     val isLoggedIn = userManager.loginUser(user)
 
                     if (isLoggedIn) {
-                        if (rememberMe.isChecked) {
-                            session.saveSession(login)
-                        }
-
-                        Toast.makeText(this@LoginActivity, "Вы успешно вошли в систему", Toast.LENGTH_LONG).show()
+                        session.saveSession(login) // * автоматическое сохранение юзера в сессии
 
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         intent.putExtra("USER_LOGIN", user.login) // * передача логина юзера ТОЛЬКО в MainActivity
