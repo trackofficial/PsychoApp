@@ -2,11 +2,10 @@
 <resources>
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/background_color</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/icon_app_psycho_svg</item>
         <item name="postSplashScreenTheme">@style/Theme.PsychoApp</item>
     </style>
 
-    <style name="Theme.PsychoApp" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.PsychoApp" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:statusBarColor">@color/fullblack</item>
         <item name="android:navigationBarColor">@color/fullblack</item>
         <item name="windowActionBar">false</item>

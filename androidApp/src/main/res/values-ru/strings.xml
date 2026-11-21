@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Psycho</string>
+    <string name="app_name">BetweenUs</string>
     <string name="login">логин</string>
     <string name="password">пароль</string>
     <string name="accept_password">подтвердите пароль</string>
