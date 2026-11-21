@@ -1,24 +1,14 @@
-package com.example.psychoapp.data.local.chat
+package com.example.psychoapp.data.local.chat.dao
 
 import androidx.room.Dao
-import androidx.room.Database
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.RoomDatabase
+import com.example.psychoapp.data.local.chat.model.ChatMessageEntity
 import kotlinx.coroutines.flow.Flow
 
-@Database(
-    entities = [
-        ChatMessageEntity::class,
-    ], version = 1
-)
-abstract class ChatMessagesDb : RoomDatabase() {
-    abstract fun getChatMessagesDao(): ChatMessageDao
-}
-
 @Dao
-interface ChatMessageDao {
+interface ChatMessagesDao {
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(message: ChatMessageEntity): Long

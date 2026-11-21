@@ -8,8 +8,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.psychoapp.data.local.notes.NotesDbProvider
 import com.example.psychoapp.R
+import com.example.psychoapp.data.local.AppDbProvider
 import com.example.psychoapp.utils.SessionManager
 import kotlinx.coroutines.launch
 
@@ -21,6 +21,8 @@ class NotesActivity : ComponentActivity() {
         setContentView(R.layout.notes_activity)
 
         val userLogin = intent.getStringExtra("USER_LOGIN") ?: SessionManager(this).userLogin ?: "unknown_user"
+
+        val db = AppDbProvider.getDb(this)
 
         val recycler = findViewById<RecyclerView>(R.id.notes_recycler)
         val btnAdd = findViewById<View>(R.id.btn_add_note)
@@ -40,10 +42,8 @@ class NotesActivity : ComponentActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
 
-        val db = NotesDbProvider.get(this)
-
         lifecycleScope.launch {
-            db.getNotesDao().getUserNotes(userLogin).collect { notes ->
+            db.notesDao().getUserNotes(userLogin).collect { notes ->
                 adapter.submitList(notes)
                 emptyView.visibility = if (notes.isEmpty()) View.VISIBLE else View.GONE
             }

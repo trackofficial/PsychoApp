@@ -7,8 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.psychoapp.data.local.notes.Note
+import com.example.psychoapp.data.local.notes.model.Note
 import com.example.psychoapp.R
+import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
@@ -27,9 +28,13 @@ class NoteAdapter(private val onNoteClick: (Note) -> Unit) : ListAdapter<Note, N
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val note = getItem(position)
+
+        val instant = Instant.ofEpochMilli(note.timestamp)
+        val formattedDate = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm").withZone(ZoneId.systemDefault()).format(instant)
+
         holder.title.text = note.title
         holder.body.text = note.body
-        holder.date.text = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm").withZone(ZoneId.systemDefault()).format(note.timestamp)
+        holder.date.text = formattedDate
 
         holder.itemView.setOnClickListener {
             onNoteClick(note)

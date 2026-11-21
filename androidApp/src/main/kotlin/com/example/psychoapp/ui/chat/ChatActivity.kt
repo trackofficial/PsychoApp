@@ -3,7 +3,6 @@ package com.example.psychoapp.ui.chat
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -14,8 +13,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.psychoapp.data.remote.ChatApiProvider
-import com.example.psychoapp.data.local.chat.ChatMessagesDbProvider
 import com.example.psychoapp.R
+import com.example.psychoapp.data.local.AppDbProvider
 import com.example.psychoapp.data.repository.RoomChatHistoryRepository
 import com.example.psychoapp.utils.SessionManager
 import kotlinx.coroutines.launch
@@ -30,7 +29,7 @@ class ChatActivity : ComponentActivity() {
     private val viewModel: ChatViewModel by viewModels {
         ChatViewModelFactory(
             repository = RoomChatHistoryRepository(
-                ChatMessagesDbProvider.get(applicationContext).getChatMessagesDao()
+                AppDbProvider.getDb(applicationContext).chatMessagesDao()
             ),
             chatApi = ChatApiProvider.api,
             userLogin = intent.getStringExtra("USER_LOGIN") ?: SessionManager(this).userLogin ?: "unknown_user",

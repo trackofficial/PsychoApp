@@ -1,26 +1,13 @@
-package com.example.psychoapp.data.local.notes
+package com.example.psychoapp.data.local.notes.dao
 
 import androidx.room.Dao
-import androidx.room.Database
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import androidx.room.Update
-import com.example.psychoapp.data.local.InstantConverter
+import com.example.psychoapp.data.local.notes.model.Note
 import kotlinx.coroutines.flow.Flow
-
-@Database(
-    entities = [
-        Note::class,
-    ], version = 1
-)
-@TypeConverters(InstantConverter::class)
-abstract class NotesDb : RoomDatabase() {
-    abstract fun getNotesDao(): NotesDao
-}
 
 @Dao
 interface NotesDao {

@@ -1,8 +1,8 @@
 package com.example.psychoapp.data.repository
 
 import android.util.Log
-import com.example.psychoapp.data.local.chat.ChatMessageDao
-import com.example.psychoapp.data.local.chat.ChatMessageEntity
+import com.example.psychoapp.data.local.chat.dao.ChatMessagesDao
+import com.example.psychoapp.data.local.chat.model.ChatMessageEntity
 import com.example.psychoapp.shared.chat.ChatHistoryRepository
 import com.example.psychoapp.shared.chat.ChatMessageUi
 import com.example.psychoapp.shared.chat.ChatStatus
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.map
 
 private const val TAG = "RoomChatHistoryRepo"
 
-class RoomChatHistoryRepository(private val dao: ChatMessageDao) : ChatHistoryRepository {
+class RoomChatHistoryRepository(private val dao: ChatMessagesDao) : ChatHistoryRepository {
     override fun observeByUser(userLogin: String): Flow<List<ChatMessageUi>> =
         dao.observeByUser(userLogin).map { entities ->
         entities.mapNotNull { it.toUiOrNull() }

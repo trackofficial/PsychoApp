@@ -3,7 +3,7 @@ package com.example.psychoapp.debug
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import com.example.psychoapp.data.local.chat.ChatMessagesDbProvider
+import com.example.psychoapp.data.local.AppDbProvider
 import com.example.psychoapp.data.repository.RoomChatHistoryRepository
 import com.example.psychoapp.shared.chat.ChatHistoryRepository
 import com.example.psychoapp.shared.chat.ChatStatus
@@ -20,7 +20,7 @@ suspend fun runChatHistorySmokeTest(
     Log.d(TAG, "=== Chat history smoke test started ===")
     toast(context, "Room: старт")
 
-    val dao = ChatMessagesDbProvider.get(context).getChatMessagesDao()
+    val dao = AppDbProvider.getDb(context).chatMessagesDao()
     val repository: ChatHistoryRepository = RoomChatHistoryRepository(dao)
 
     try {

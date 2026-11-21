@@ -7,10 +7,10 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import com.example.psychoapp.data.local.notes.Note
+import com.example.psychoapp.data.local.notes.model.Note
 import com.example.psychoapp.utils.NoteManager
-import com.example.psychoapp.data.local.notes.NotesDbProvider
 import com.example.psychoapp.R
+import com.example.psychoapp.data.local.AppDbProvider
 import com.example.psychoapp.utils.SessionManager
 import kotlinx.coroutines.launch
 
@@ -23,32 +23,40 @@ class AddNoteActivity : ComponentActivity() {
 
         val userLogin = intent.getStringExtra("USER_LOGIN") ?: SessionManager(this).userLogin ?: "unknown_user"
 
-        val db = NotesDbProvider.get(this)
+        val db = AppDbProvider.getDb(this)
+        val noteManager = NoteManager(db)
 
         val noteTitle = findViewById<EditText>(R.id.edit_note_title)
         val noteText = findViewById<EditText>(R.id.edit_note_text)
 
         val saveNoteBtn = findViewById<Button>(R.id.btn_save_note)
         saveNoteBtn.setOnClickListener {
-            val title = noteTitle.text.toString().trim()
-            val text = noteText.text.toString().trim()
+            var title = noteTitle.text.toString().trim()
+            var text = noteText.text.toString().trim()
 
-            if (title.isEmpty() || text.isEmpty()) {
-                Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
+            // * оба пусты
+            if (title.isEmpty() && text.isEmpty()) {
+                Toast.makeText(this@AddNoteActivity, "Хотя бы одно поле должно быть заполнено", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
             }
-            else {
-                val noteManager = NoteManager(db)
-                lifecycleScope.launch {
-                    val note = Note(title = title, body = text, userLogin = userLogin)
-                    val insertedNoteId = noteManager.addNote(note)
 
-                    if (insertedNoteId) {
-                        Toast.makeText(this@AddNoteActivity, "Заметка успешно сохранена", Toast.LENGTH_LONG).show()
-                        finish()
-                    }
-                    else {
-                        Toast.makeText(this@AddNoteActivity, "Ошибка при сохранении заметки", Toast.LENGTH_LONG).show()
-                    }
+            // * чем заполнено — тем и дополняем пустое
+            if (title.isEmpty()) title = text
+            if (text.isEmpty()) text = title
+
+            lifecycleScope.launch {
+                val note = Note(
+                    title = title,
+                    body = text,
+                    userLogin = userLogin,
+                    timestamp = System.currentTimeMillis()
+                )
+                val insertedNoteId = noteManager.addNote(note)
+
+                if (insertedNoteId) {
+                    finish()
+                } else {
+                    Toast.makeText(this@AddNoteActivity, "Ошибка при сохранении заметки", Toast.LENGTH_LONG).show()
                 }
             }
         }

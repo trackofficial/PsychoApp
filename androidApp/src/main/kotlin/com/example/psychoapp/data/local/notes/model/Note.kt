@@ -1,4 +1,4 @@
-package com.example.psychoapp.data.local.notes
+package com.example.psychoapp.data.local.notes.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -17,7 +17,7 @@ data class Note(
     @ColumnInfo(name = TEXT_COLUMN)
     val body: String,
     @ColumnInfo(name = TIMESTAMP_COLUMN)
-    val timestamp: Instant = Instant.now(),
+    val timestamp: Long,
     @ColumnInfo(name = USER_LOGIN)
     val userLogin: String
 ) {

@@ -1,6 +1,5 @@
 package com.example.psychoapp.ui.notes
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -8,10 +7,10 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import com.example.psychoapp.data.local.notes.Note
+import com.example.psychoapp.data.local.notes.model.Note
 import com.example.psychoapp.utils.NoteManager
-import com.example.psychoapp.data.local.notes.NotesDbProvider
 import com.example.psychoapp.R
+import com.example.psychoapp.data.local.AppDbProvider
 import com.example.psychoapp.utils.SessionManager
 import kotlinx.coroutines.launch
 
@@ -22,7 +21,7 @@ class EditNoteActivity : ComponentActivity() {
 
         setContentView(R.layout.edit_note_activity)
 
-        val db = NotesDbProvider.get(this)
+        val db = AppDbProvider.getDb(this)
         val noteManager = NoteManager(db)
 
         val userLogin = SessionManager(this).userLogin ?: "unknown_user"
@@ -39,30 +38,33 @@ class EditNoteActivity : ComponentActivity() {
 
         val saveNoteBtn = findViewById<Button>(R.id.btn_save_note)
         saveNoteBtn.setOnClickListener {
-            val newNoteTitle = editNoteTitle.text.toString().trim()
-            val newNoteText = editNoteText.text.toString().trim()
+            var newNoteTitle = editNoteTitle.text.toString().trim()
+            var newNoteText = editNoteText.text.toString().trim()
 
-            if (newNoteTitle.isEmpty() || newNoteText.isEmpty()) {
-                Toast.makeText(this, "Все поля должны быть заполнены", Toast.LENGTH_LONG).show()
+            // * оба пусты
+            if (newNoteTitle.isEmpty() && newNoteText.isEmpty()) {
+                Toast.makeText(this@EditNoteActivity, "Хотя бы одно поле должно быть заполнено", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
             }
-            else {
-                lifecycleScope.launch {
-                    val note = Note(
-                        id = noteId,
-                        title = newNoteTitle,
-                        body = newNoteText,
-                        userLogin = userLogin
-                    )
 
-                    val updatedNote = noteManager.updateNote(note)
-                    if (updatedNote) {
-                        Toast.makeText(this@EditNoteActivity, "Заметка успешно изменена", Toast.LENGTH_LONG).show()
+            // * чем заполнено — тем и дополняем пустое
+            if (newNoteTitle.isEmpty()) newNoteTitle = newNoteText
+            if (newNoteText.isEmpty()) newNoteText = newNoteTitle
 
-                        finish()
-                    }
-                    else {
-                        Toast.makeText(this@EditNoteActivity, "Ошибка при изменении заметки", Toast.LENGTH_LONG).show()
-                    }
+            lifecycleScope.launch {
+                val note = Note(
+                    id = noteId,
+                    title = newNoteTitle,
+                    body = newNoteText,
+                    userLogin = userLogin,
+                    timestamp = System.currentTimeMillis()
+                )
+
+                val updatedNote = noteManager.updateNote(note)
+                if (updatedNote) {
+                    finish()
+                } else {
+                    Toast.makeText(this@EditNoteActivity, "Ошибка при изменении заметки", Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -77,13 +79,12 @@ class EditNoteActivity : ComponentActivity() {
                     id = noteId,
                     title = newNoteTitle,
                     body = newNoteText,
-                    userLogin = userLogin
+                    userLogin = userLogin,
+                    timestamp = System.currentTimeMillis()
                 )
 
                 val isDeleted = noteManager.deleteNote(note)
                 if (isDeleted) {
-                    Toast.makeText(this@EditNoteActivity, "Запись успешно удалена", Toast.LENGTH_LONG).show()
-
                     finish()
                 }
                 else {

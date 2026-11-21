@@ -1,12 +1,12 @@
 package com.example.psychoapp.utils
 
-import com.example.psychoapp.data.local.notes.Note
-import com.example.psychoapp.data.local.notes.NotesDb
+import com.example.psychoapp.data.local.AppDb
+import com.example.psychoapp.data.local.notes.model.Note
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class NoteManager(private val notesDB: NotesDb) {
-    private val notesDao = notesDB.getNotesDao()
+class NoteManager(db: AppDb) {
+    private val notesDao = db.notesDao()
 
     // * добавление заметки в бд
     suspend fun addNote(note: Note): Boolean = withContext(Dispatchers.IO) {
